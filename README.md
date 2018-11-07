@@ -66,19 +66,31 @@ Home Page
 - How to play
 - Sign Up
 - Login
+- Buttons
  
 Profile Page
 - Navbar
 - My Games
+- Buttons
 
 Room Game Personal Page
 - Navbar
 - Mission
 - Participants List
+- Admin (Buttons)
 
 Game Create Page
+- Navbar
+- Participants List
+- Buttons
+
 Game Join Page
+- Navbar
+- Buttons
+
 Game Over Page 
+- Navbar
+- Resum
 
 ## Services
 
@@ -99,7 +111,7 @@ Game Over Page
 
 ### Trello/Kanban
 
-[Link to your trello board](https://trello.com/b/s2J2Vdcr/proyecto-modulo-3) 
+[Link to trello board](https://trello.com/b/s2J2Vdcr/proyecto-modulo-3) 
 
 ### Git
 
