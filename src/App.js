@@ -20,7 +20,7 @@ class App extends Component {
           <div>
             <h1>P A R A N O I A</h1>
             <h2>Trust No One</h2>
-            <Navbar />
+          
             <Switch>
               <Route exact path="/" component={HomePage} />
               <PrivateRoute path="/profile" component={Profile} />

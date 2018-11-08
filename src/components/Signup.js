@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import auth from '../lib/auth-service';
 import { withAuth } from '../lib/authContext';
 
@@ -23,6 +23,7 @@ class Signup extends Component {
         });
         this.props.setUser(user);
         this.props.history.push('/profile');
+        
       })
       .catch( error => console.log(error) )
   }
@@ -52,4 +53,4 @@ class Signup extends Component {
   }
 }
 
-export default withAuth(Signup);
+export default withAuth(withRouter(Signup));

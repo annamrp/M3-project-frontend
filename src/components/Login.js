@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import auth from '../lib/auth-service';
 import { withAuth } from '../lib/authContext';
+import { withRouter } from 'react-router-dom';
 
 class Login extends Component {
   state = {
@@ -39,4 +40,4 @@ class Login extends Component {
   }
 }
 
-export default withAuth(Login);
+export default withAuth(withRouter(Login));
