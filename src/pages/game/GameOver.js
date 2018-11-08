@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withAuth } from '../lib/authContext';
+import { withAuth } from '../../lib/authContext';
 
 class GameOver extends Component {
   render() {
