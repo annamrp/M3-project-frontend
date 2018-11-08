@@ -3,8 +3,6 @@ import { Route, Switch } from 'react-router-dom'
 
 import PrivateRoute from './components/PrivateRoute'
 import Navbar from './components/Navbar';
-// import Signup from './components/Signup';
-// import Login from './components/Login';
 import HomePage from './pages/HomePage';
 import Profile from './pages/Profile';
 import PersonalRoom from './pages/PersonalRoom';
@@ -25,8 +23,6 @@ class App extends Component {
             <Navbar />
             <Switch>
               <Route exact path="/" component={HomePage} />
-              {/* <PrivateRoute path="/signup" component={Signup} />
-              <PrivateRoute path="/login" component={Login} />              */}
               <PrivateRoute path="/profile" component={Profile} />
               <PrivateRoute path="/game/id" component={PersonalRoom} />
               <PrivateRoute path="/game/create" component={Create} />
