@@ -8,9 +8,9 @@ import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import Profile from './pages/Profile';
 import PersonalRoom from './pages/PersonalRoom';
-import Create from './pages/Create';
-import Join from './pages/Join';
-import GameOver from './pages/GameOver';
+import Create from './pages/game/Create';
+import Join from './pages/game/Join';
+import GameOver from './pages/game/GameOver';
 
 import AuthContext from './lib/authContext';
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withAuth } from '../lib/authContext';
+import { withAuth } from '../../lib/authContext';
 
 class Join extends Component {
   render() {
