@@ -19,6 +19,7 @@ Paranoia is a real live game that uses this app as its manager, the game consist
 - **Game Detail** As a user I can access the gameroom so that I can use the platform to eliminate other           participants, send a messege and check the state of the game.
 - **Start Game** As a game admin (user) I can, once the participants have accepted my invitations, start the      game so that we can start playing and the app starts managing the game.
 - **Accomplish Mission** As a user, I can signal that I have completed a mission so that my target gets           notified, eliminated from the game and I can recieve my new mission.
+
  
 
 ## Backlog
@@ -58,7 +59,7 @@ Alerts
 - Game Join Page
 - Game Over Page 
 - 404 Page
-- 500 page 
+
 
 ## Components (state? props?)
 
@@ -90,7 +91,7 @@ Game Join Page
 
 Game Over Page 
 - Navbar
-- Sumary
+- event log card
 
 ## Services
 
