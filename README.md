@@ -90,7 +90,7 @@ Game Join Page
 
 Game Over Page 
 - Navbar
-- Resum
+- Sumary
 
 ## Services
 
@@ -99,13 +99,13 @@ Game Over Page
   - auth.signup(user)
   - auth.logout()
   - auth.me()
-  - auth.getUser() // synchronous
-- Restaurant Service
-  - restaurant.list()
-  - restaurant.create(data)
-  - restaurant.detail(id)
-  - restaurant.addFavorite(id)
-  - restaurant.removeFavorite(id)   
+ 
+- Game Service
+  - Game.create(data)
+  - Game.join(id)
+  - Game.start(id)
+  - Game.delete(id)   
+  - Game.accomplishMission(id)
 
   ## Links
 
