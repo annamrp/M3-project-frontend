@@ -22,7 +22,7 @@ class Signup extends Component {
             password: "",
         });
         this.props.setUser(user);
-        this.props.history.push('/private');
+        this.props.history.push('/profile');
       })
       .catch( error => console.log(error) )
   }
