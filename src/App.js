@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
 
 import PrivateRoute from './components/PrivateRoute'
-import Navbar from './components/Navbar';
 // import Signup from './components/Signup';
 // import Login from './components/Login';
 import HomePage from './pages/HomePage';
@@ -20,9 +19,6 @@ class App extends Component {
       <AuthContext>
         <div className="container">
           <div>
-            <h1>P A R A N O I A</h1>
-            <h2>Trust No One</h2>
-          
             <Switch>
               <Route exact path="/" component={HomePage} />
               {/* <PrivateRoute path="/signup" component={Signup} />
