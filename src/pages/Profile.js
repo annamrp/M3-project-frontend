@@ -4,9 +4,17 @@ import CreateForm from '../components/CreateForm';
 
 
 import Navbar from '../components/Navbar';
+import Button from '../components/Button';
 
 class Profile extends Component {
 
+  // createAGame = () => {
+  //   this.props.history.push('/game/create')
+  // }
+
+  // joinAGame = () => {
+  //   this.props.history.push('/game/join')
+  // }
   state = {
     userName: '',
   }
