@@ -28,6 +28,7 @@ handleStartClick() {
   const gameId = this.props.match.params.id;
   gameServer.startGame(gameId)
   .then( game => {
+    const gameId = game._id;
     this.props.history.push(`/game/${gameId}`);
   })
 }
