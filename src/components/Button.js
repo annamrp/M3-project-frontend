@@ -5,7 +5,7 @@ import { withAuth } from '../lib/authContext';
 class Button extends Component {
 
   handleLink = () => {
-    this.props.handleLink();
+    this.props.onClick();
   }
 
   render() {
