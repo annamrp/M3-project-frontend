@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import auth from '../lib/auth-service';
 import { withAuth } from '../lib/authContext';
 
@@ -33,21 +33,21 @@ class Signup extends Component {
     this.setState({[name]: value});
   }
 
+  handleLogin = () => {
+    this.props.handleLogin()
+  }
   render() {
     const { username, password } = this.state;
     return (
-      <div>
+      <div className="signup">
         <form onSubmit={this.handleFormSubmit}>
           <label>Username:</label>
           <input type="text" name="username" value={username} onChange={this.handleChange}/>
           <label>Password:</label>
           <input type="password" name="password" value={password} onChange={this.handleChange} />
           <input type="submit" value="Signup" />
+          <p>Already have an account? <span onClick={this.handleLogin}>Login</span></p>
         </form>
-
-        <p>Already have account? 
-          <Link to={"/login"}> Login</Link>
-        </p>
       </div>
     )
   }
