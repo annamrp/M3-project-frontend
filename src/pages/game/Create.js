@@ -17,17 +17,25 @@ componentDidMount() {
     this.setState({
       admin: game.admin.username,
       roomName: game.roomName,
+      participants: game.participants,
     })
   })
 }
 
   render() {
-    const { admin, roomName } = this.state;
+    const { admin, roomName, participants } = this.state;
 
     return (
       <div>
         <h1>Room Name: {roomName} </h1>
         <h3>Admin: {admin} </h3>
+        <h3> Participants: 
+          { participants? participants.map(participant => {
+                return <span key={participant.username}> {participant.username}</span>
+              })
+              : null
+          }
+        </h3>  
       </div>
     )
   }
