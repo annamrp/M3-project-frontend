@@ -26,16 +26,23 @@ class Login extends Component {
     this.setState({[name]: value});
   }
 
+  handleSignup = () => {
+    this.props.handleSignup()
+  }
+
   render() {
     const { username, password } = this.state;
     return (
-      <form onSubmit={this.handleFormSubmit}>
-        <label>Username:</label>
-        <input type="text" name="username" value={username} onChange={this.handleChange}/>
-        <label>Password:</label>
-        <input type="password" name="password" value={password} onChange={this.handleChange} />
-        <input type="submit" value="Login" />
-      </form>
+      <div className="login">
+        <form onSubmit={this.handleFormSubmit}>
+          <label>Username:</label>
+          <input type="text" name="username" value={username} onChange={this.handleChange}/>
+          <label>Password:</label>
+          <input type="password" name="password" value={password} onChange={this.handleChange} />
+          <input type="submit" value="Login" />
+          <p>Don't you have an acount? <span onClick={this.handleSignup}>SignUp</span></p>
+        </form>
+      </div>
     )
   }
 }
