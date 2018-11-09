@@ -21,7 +21,8 @@ handleSubmit = (event) => {
   
   gameServer.createGame(roomName)
   .then( game => {
-    this.props.history.push('../pages/game/Create.js');
+    const gameId = game._id;
+    this.props.history.push(`/game/${gameId}/create`);
    
   })
  

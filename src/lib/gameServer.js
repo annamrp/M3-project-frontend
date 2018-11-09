@@ -14,6 +14,11 @@ class GameServer {
     return this.auth.post('/game/' , { roomName })
     .then(({ data }) => data);
   }
+
+  getGameInfo(gameId) {
+    return this.auth.get(`/game/${gameId}`)
+    .then(({ data }) => data);
+  }
 }
 
 const gameServer = new GameServer();

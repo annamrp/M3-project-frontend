@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withAuth } from '../lib/authContext';
 import CreateForm from '../components/CreateForm';
 
+
 import Navbar from '../components/Navbar';
 
 class Profile extends Component {
@@ -23,6 +24,7 @@ class Profile extends Component {
         <Navbar />
         My Profile!
         <CreateForm  onSubmit={this.handleSubmit} />
+       
       </div>
     )
   }
