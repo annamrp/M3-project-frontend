@@ -4,13 +4,13 @@ import { withAuth } from '../lib/authContext';
 
 class Button extends Component {
 
-  handleLink = () => {
-    this.props.handleLink();
+  handleButton = () => {
+    this.props.handleButton();
   }
 
   render() {
     return (
-      <button className="btn" onClick={this.handleLink}>{this.props.children}</button>
+      <button className="btn" onClick={this.handleButton}>{this.props.children}</button>
     )
   }
 }

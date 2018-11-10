@@ -8,15 +8,13 @@ import Button from '../components/Button';
 
 class Profile extends Component {
 
-  // createAGame = () => {
-  //   this.props.history.push('/game/create')
-  // }
-
-  // joinAGame = () => {
-  //   this.props.history.push('/game/join')
-  // }
   state = {
     userName: '',
+    showJoinForm: false
+  }
+
+  joinGameLink = () => {
+    this.props.history.push('/game/join')
   }
 
   handleSubmit = (roomName) => {
@@ -27,11 +25,13 @@ class Profile extends Component {
   }
 
   render() {
+
     return (
       <div>
         <Navbar />
-        My Profile!
+        <h2>{this.props.user.username}'s Profile</h2>
         <CreateForm  onSubmit={this.handleSubmit} />
+        <Button handleButton={this.joinGameLink}>Join A Game</Button>
        
       </div>
     )
