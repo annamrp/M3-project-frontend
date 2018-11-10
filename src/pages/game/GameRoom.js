@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { withAuth } from '../lib/authContext';
+import { withAuth } from '../../lib/authContext';
 
-class PersonalRoom extends Component {
+class GameRoom extends Component {
   render() {
     return (
       <div>
@@ -11,4 +11,4 @@ class PersonalRoom extends Component {
   }
 }
 
-export default withAuth(PersonalRoom);
+export default withAuth(GameRoom);
