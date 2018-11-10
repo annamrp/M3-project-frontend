@@ -25,6 +25,10 @@ class GameServer {
     .then(({ data }) => data);
   }
 
+  startGame(gameId) {
+    return this.auth.get(`/game/${gameId}/start`)
+    .then(({ data }) => data);
+  }
 }
 
 const gameServer = new GameServer();
