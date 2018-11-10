@@ -5,23 +5,31 @@ import userServer from '../lib/userServer';
 import Navbar from '../components/Navbar';
 import MyGames from '../components/MyGames';
 import Button from '../components/Button';
+import Form from '../components/Form';
 
 class Profile extends Component {
 
   state = {
-    user: {},
+    user: '',
     games: [],
-    isLoading: true
+    isLoading: true,
+    showJoinForm: false,
+    quote:'',
+    image:'',
+    showEditForm: false,
+    id:'',
   }
 
   joinGameLink = () => {
     this.props.history.push('/game/join')
   }
 
-  handleSubmit = (roomName) => {
+  handleSubmit = (quote) => {
    
-    // this.toggleForm();
-
+   this.setState({
+     quote,
+   })
+   this.toggleEditForm();
   }
 
   componentDidMount() {
@@ -32,13 +40,15 @@ class Profile extends Component {
   }
 
   update() {  
-    const userId = this.props.user._id
+    const userId = this.props.user._id;
     userServer.getUser(userId)
     .then(data => {
       this.setState({
-        user: data.user,
+        user: data.user.username,
         games: data.games,
-        isLoading: false
+        isLoading: false,
+        quote: data.user.quote,
+        id: data.user._id,
       })
     })
     .catch(error => {
@@ -55,26 +65,40 @@ class Profile extends Component {
     })  
   }
  
+  
+  editProfile = () => {
+    
+ };
+
+ toggleEditForm = () => {
+   const { showEditForm } = this.state;
+   this.setState({
+     showEditForm: !showEditForm,
+   })
+ }
+
   render() {
 
-    const { username, quote, image } = this.state.user
-    const { isLoading } = this.state;
+    const { user, quote, image, showEditForm, isLoading} = this.state;
     
-    return ( 
+
+    return (
       <div>
         {isLoading ? <h1>Loading... </h1> : <div>
           <Navbar />
-          <div className="profile">
-            <h2>{ username }'s profile</h2>
-            <img href={image}  alt="user icon" />
-            <h5>Kill Sentence: { quote }</h5>
-          </div>
+          <h2>{ user }'s profile</h2>
+          <img src={image} alt="User"></img>
+          <h5>Kill Sentence: {quote}</h5>
+          <Button handleButton={this.toggleEditForm}/>
+          {showEditForm ? <Form onClick={this.editProfile} profileInfo={this.state.id} handleSubmit={this.handleSubmit}/>
+            : null
+          }
           <h4>My Games:</h4>
           {this.renderGames()}
           My Profile!
           <CreateForm  onSubmit={this.handleSubmit} />
           <Button handleButton={this.joinGameLink}>Join A Game</Button>
-        </div>
+         </div> 
         }
       </div>
     )

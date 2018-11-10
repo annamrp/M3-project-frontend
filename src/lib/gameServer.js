@@ -29,7 +29,11 @@ class GameServer {
     return this.auth.get(`/game/${gameId}/start`)
     .then(({ data }) => data);
   }
+
+
 }
+
+
 
 const gameServer = new GameServer();
 

@@ -4,14 +4,21 @@ class ProfileServer {
 
   constructor() {
 
-    this.profile = axios.create({
+    this.user = axios.create({
       baseURL: process.env.REACT_APP_BASEURL,
       withCredentials: true
     })
   }
 
   getUser(userId) {
-    return this.profile.get('/user')
+    return this.user.get('/user')
+    .then(({ data }) => data);
+  }
+
+
+  editProfile(userInfo, userId) {
+    console.log(userInfo, userId);
+    return this.user.patch(`/user/${userId}/edit`, {userInfo})
     .then(({ data }) => data);
   }
 }
