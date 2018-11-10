@@ -5,23 +5,29 @@ import userServer from '../lib/userServer';
 import Navbar from '../components/Navbar';
 import MyGames from '../components/MyGames';
 import Button from '../components/Button';
+import Form from '../components/Form';
 
 class Profile extends Component {
 
   state = {
     user: {},
     isLoading: true,
-    showJoinForm: false
+    showJoinForm: false,
+    quote:'',
+    image:'',
+    showEditForm: false,
   }
 
   joinGameLink = () => {
     this.props.history.push('/game/join')
   }
 
-  handleSubmit = (roomName) => {
+  handleSubmit = (quote) => {
    
-    // this.toggleForm();
-
+   this.setState({
+     quote,
+   })
+   this.toggleEditForm();
   }
 
   componentDidMount() {
@@ -32,12 +38,13 @@ class Profile extends Component {
     this.setState({
       isLoading: true
     })
-    const userId = this.props.user._id
+    const userId = this.props.user._id;
     userServer.getUser(userId)
     .then(user => {
       this.setState({
         user: user,
-        isLoading: false
+        isLoading: false,
+        quote: user.quote,
       })
     })
     .catch(error => {
@@ -45,18 +52,30 @@ class Profile extends Component {
     })
   }
 
+  editProfile = () => {
+    
+ };
+
+ toggleEditForm = () => {
+   const { showEditForm } = this.state;
+   this.setState({
+     showEditForm: !showEditForm,
+   })
+ }
+
   render() {
 
-    const { username, quote, image} = this.state.user
-
+    const { user, quote, image, showEditForm} = this.state;
     return (
       <div>
         <Navbar />
-        <div className="profile">
-          <h2>{ username }'s profile</h2>
-          <img href={image}  alt="user icon" />
-          <h5>Kill Sentence: { quote }</h5>
-        </div>
+        <h2>{ user.username }'s profile</h2>
+        <img src={image} alt="User"></img>
+        <h5>Kill Sentence: {quote}</h5>
+        <Button handleButton={this.toggleEditForm}/>
+        {showEditForm ? <Form onClick={this.editProfile} profileInfo={this.state} handleSubmit={this.handleSubmit}/>
+          : null
+         }
         <h4>My Games:</h4>
         <MyGames />
         My Profile!
