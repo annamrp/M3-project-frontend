@@ -38,7 +38,6 @@ class Profile extends Component {
         <h4>My Games:</h4>
         <MyGames />
         <button>será un componente</button>
-        My Profile!
         <CreateForm  onSubmit={this.handleSubmit} />
        
       </div>

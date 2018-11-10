@@ -15,10 +15,10 @@ Paranoia is a real live game that uses this app as its manager, the game consist
 -  **Join game** As a user I can join a game I've been invited to
 -  **Edit profile** As a user I can edit my profile so that I can add a photo or change my killer sentence
 -  **Delete game** As a user (game admin) I can delete the game so that I can finish the game
--  **Invite Player** As a user (game admin) I can invite player to the game so that they receive a code and       join the game.
-- **Game Detail** As a user I can access the gameroom so that I can use the platform to eliminate other           participants, send a messege and check the state of the game.
-- **Start Game** As a game admin (user) I can, once the participants have accepted my invitations, start the      game so that we can start playing and the app starts managing the game.
-- **Accomplish Mission** As a user, I can signal that I have completed a mission so that my target gets           notified, eliminated from the game and I can recieve my new mission.
+-  **Invite Player** As a user (game admin) I can invite player to the game so that they receive a code and join the game.
+- **Game Detail** As a user I can access the gameroom so that I can use the platform to eliminate other participants, send a messege and check the state of the game.
+- **Start Game** As a game admin (user) I can, once the participants have accepted my invitations, start the game so that we can start playing and the app starts managing the game.
+- **Accomplish Mission** As a user, I can signal that I have completed a mission so that my target gets notified, eliminated from the game and I can recieve my new mission.
 
  
 
