@@ -6,7 +6,8 @@ import { withRouter } from 'react-router-dom';
 class CreateForm extends Component {
 
   state = {
-    roomName:'',  
+    roomName:'', 
+    mission: '' 
 }
 
 handleEdit = event => {
@@ -17,9 +18,9 @@ handleEdit = event => {
 
 handleSubmit = (event) => {
   event.preventDefault();
-  const { roomName } = this.state;
+  const { roomName, mission } = this.state;
   
-  gameServer.createGame(roomName)
+  gameServer.createGame(roomName, mission)
   .then( game => {
     const gameId = game._id;
     this.props.history.push(`/game/${gameId}/create`);
@@ -29,12 +30,13 @@ handleSubmit = (event) => {
 }
 
   render() {
-    const { roomName } = this.state;
+    const { roomName, mission } = this.state;
 
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           <input className="input is-success" placeholder="game name" type="text" name="roomName" value={roomName} onChange={this.handleEdit}/>
+          <input className="input is-success" placeholder="Introduce a mission" type="text" name="mission" value={mission} onChange={this.handleEdit}/>
           <input className="button is-success" type="submit" value="Create Game"/>
         </form>
       </div>

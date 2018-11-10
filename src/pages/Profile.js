@@ -10,8 +10,8 @@ class Profile extends Component {
 
   state = {
     user: {},
-    isLoading: true,
-    showJoinForm: false
+    games: [],
+    isLoading: true
   }
 
   joinGameLink = () => {
@@ -25,18 +25,19 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    this.update()
-  }
-
-  update() {
     this.setState({
       isLoading: true
     })
+    this.update()
+  }
+
+  update() {  
     const userId = this.props.user._id
     userServer.getUser(userId)
-    .then(user => {
+    .then(data => {
       this.setState({
-        user: user,
+        user: data.user,
+        games: data.games,
         isLoading: false
       })
     })
@@ -45,23 +46,36 @@ class Profile extends Component {
     })
   }
 
+  renderGames() {
+    const { games } = this.state;
+    return games.map((game) => {
+      return <MyGames 
+        key={game._id}
+        game={game}/>  
+    })  
+  }
+ 
   render() {
 
-    const { username, quote, image} = this.state.user
-
-    return (
+    const { username, quote, image } = this.state.user
+    const { isLoading } = this.state;
+    
+    return ( 
       <div>
-        <Navbar />
-        <div className="profile">
-          <h2>{ username }'s profile</h2>
-          <img href={image}  alt="user icon" />
-          <h5>Kill Sentence: { quote }</h5>
+        {isLoading ? <h1>Loading... </h1> : <div>
+          <Navbar />
+          <div className="profile">
+            <h2>{ username }'s profile</h2>
+            <img href={image}  alt="user icon" />
+            <h5>Kill Sentence: { quote }</h5>
+          </div>
+          <h4>My Games:</h4>
+          {this.renderGames()}
+          My Profile!
+          <CreateForm  onSubmit={this.handleSubmit} />
+          <Button handleButton={this.joinGameLink}>Join A Game</Button>
         </div>
-        <h4>My Games:</h4>
-        <MyGames />
-        My Profile!
-        <CreateForm  onSubmit={this.handleSubmit} />
-        <Button handleButton={this.joinGameLink}>Join A Game</Button>
+        }
       </div>
     )
   }
