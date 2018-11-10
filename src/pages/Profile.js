@@ -30,8 +30,8 @@ class Profile extends Component {
     return (
       <div>
         <Navbar />
-        <div className="profile">
-          <img src={process.env.PUBLIC_URL + '/public/img/Ester foto de perfil.jpg'} alt="ester" />
+        <div className="profile-info">
+        <img src={process.env.PUBLIC_URL + '/img/ester-perfil.jpg'} alt="foto de perfil" onClick="" onSubmit="" />
           <h5>Esto será la quote</h5>
         </div>
         <h4>My Games:</h4>
