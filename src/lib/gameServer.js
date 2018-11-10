@@ -20,6 +20,11 @@ class GameServer {
     .then(({ data }) => data);
   }
 
+  joinGame(roomName, mission) {
+    return this.auth.post('/game/join', { roomName, mission })
+    .then(({ data }) => data);
+  }
+
   startGame(gameId) {
     return this.auth.get(`/game/${gameId}/start`)
     .then(({ data }) => data);
