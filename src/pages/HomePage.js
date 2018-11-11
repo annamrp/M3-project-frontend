@@ -6,27 +6,23 @@ import Login from '../components/Login';
 class HomePage extends Component {
 
   state = {
-    showLogin: false,
     showSignup: true
   }
 
   handleLogin = () => {
     this.setState({
-      showSignup: false
+      showSignup: !this.state.showSignup,
     })
   }
 
-  handleSignup = () => {
-    this.setState({
-      showSignup: true
-    })
-  }
 
   render() {
     const {showSignup} = this.state
     return (
       <div className="home-page">
-      {showSignup ? <Signup handleLogin={this.handleLogin}/> : <Login handleSignup={this.handleSignup}/>}
+      <img className="logo" src="/img/paranoia.png" alt="paranoia logo"/>
+      <h2 className="info">- How to play -</h2>
+      {showSignup ? <Signup handleLogin={this.handleLogin}/> : <Login handleSignup={this.handleLogin}/>}
         
         
       </div>

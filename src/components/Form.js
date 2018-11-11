@@ -7,7 +7,7 @@ class Form extends Component {
 
   state = {
     changeQuote: false,
-    quote: "",
+    quote: ''
   }
 
   handleEdit = event => {
@@ -30,7 +30,6 @@ class Form extends Component {
    
   }
 
-
   render() {  
     const {quote, image} = this.state;
     const placeholderQuote = this.props.profileInfo.quote;
@@ -39,7 +38,7 @@ class Form extends Component {
       <form onSubmit={this.handleSubmit}>
       {/* {foto edit} */}
         <input className="input is-success" placeholder={placeholderQuote} type="text" name="Kill Sentence" value={quote} onChange={this.handleEdit}/>
-        <input className="button is-success" type="submit" value="Edit Profile"/>
+        <input className="button is-success" type="submit" value="Edit"/>
     </form> 
     )
   }

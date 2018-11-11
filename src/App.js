@@ -8,6 +8,7 @@ import GameRoom from './pages/game/GameRoom';
 import Create from './pages/game/Create';
 import Join from './pages/game/Join';
 import GameOver from './pages/game/GameOver';
+import './styles.css'
 
 import AuthContext from './lib/authContext';
 
