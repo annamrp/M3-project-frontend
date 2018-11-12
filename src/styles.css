@@ -1,0 +1,137 @@
+/* 
+font-family: 'Caveat Brush', cursive;
+font-family: 'Shadows Into Light Two', cursive; 
+
+Colors:
+  #F4EFEB - claro
+  #FFB109 - amarillo
+  #FA6D09 - naranja
+  #D52C05 - rojo
+  #250601 - marrón rojizo
+  #3F3F3F - gris oscuro
+
+*/
+
+/* ---------------- GENERAL ---------------- */
+
+body {
+  /* font-family: 'Caveat Brush', cursive; */
+  font-family: 'Shadows Into Light Two', cursive; 
+
+  font-size: 1.5em;  
+  margin: 0;
+  padding: 0;
+  background-color: #F4EFEB ;
+  color: #3F3F3F;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.container {
+  padding: 5px 15px;
+}
+
+.btn,
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+  background-color: #FA6D09;
+  border-radius: 10px;
+  border: 1px solid #D52C05;
+
+  color: #fff;
+  text-shadow:   1px 1px #3f3f3f; 
+  cursor: pointer;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  height: 2.2rem;
+  width: 150px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Shadows Into Light Two', cursive; 
+
+  /* font-family: 'Caveat Brush', cursive; */
+  background:    -webkit-linear-gradient(#d52c05, #ffb109);
+  background:    linear-gradient(#d52c05, #ffb109);
+}
+
+input[type='email'],
+input[type='number'],
+input[type='password'],
+input[type='search'],
+input[type='tel'],
+input[type='text'],
+input[type='url'],
+textarea,
+select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: .4rem;
+  box-shadow: none;
+  box-sizing: inherit;
+  height: 2rem;
+  padding: .2rem .6rem;
+  width: 90%;
+  /* font-family: 'Caveat Brush', cursive; */
+  font-family: 'Shadows Into Light Two', cursive; 
+
+  font-size: 22px;
+  border:        1px solid #3F3F3F;
+  display:       inline-block;
+  text-align:    center;
+  color: rgb(114, 113, 113);
+  /* text-shadow:   1px 1px #000000; */
+  }
+
+
+/* -------------------- HOME -------------------- */
+
+img.logo {
+  width: 100%;
+  margin-top: 50px
+}
+
+h2.info {
+  margin: 15px 0 20px 0;
+  /* font-size: 1em; */
+  color: #FA6D09 ;
+  text-shadow:   1px 1px #3F3F3F 
+
+
+}
+
+label.log-sign-label {
+  text-align: left;
+  font-size: 22px;
+  font-weight: 900;
+  text-shadow: .5px .5px #3F3F3F ;
+}
+
+.input, .input-submit {
+  margin: 25px 0;
+}
+
+.input-submit {
+  text-align: center;
+}
+
+p.log-sign {
+  font-size: 18px;
+  text-align: center;
+}
+
+.toggle-sign-log {
+  color: #FA6D09 ;
+}
+
+
+/* ------------------- PROFILE ------------------ */
+
+/* ----------------- CREATE GAME ---------------- */
+
+/* ------------------ JOIN GAME ----------------- */

@@ -35,12 +35,18 @@ class Login extends Component {
     return (
       <div className="login">
         <form onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
-          <input type="text" name="username" value={username} onChange={this.handleChange}/>
-          <label>Password:</label>
-          <input type="password" name="password" value={password} onChange={this.handleChange} />
-          <input type="submit" value="Login" />
-          <p>Don't you have an acount? <span onClick={this.handleSignup}>SignUp</span></p>
+          <div className="input"> 
+            <label className="log-sign-label">Username:</label>
+            <input type="text" name="username" value={username} onChange={this.handleChange}/>
+          </div>
+          <div className="input">
+            <label className="log-sign-label">Password:</label>
+            <input type="password" name="password" value={password} onChange={this.handleChange} />
+          </div>
+          <div className="input-submit">
+            <input className="log-signup-btn" type="submit" value="Login" />
+          </div>
+          <p className="log-sign">Don't you have an acount? <span className="toggle-sign-log" onClick={this.handleSignup}>SignUp</span></p>
         </form>
       </div>
     )

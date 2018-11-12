@@ -10,8 +10,8 @@ class GameServer {
     })
   }
 
-  createGame(roomName) {
-    return this.auth.post('/game/' , { roomName })
+  createGame(roomName, mission) {
+    return this.auth.post('/game/' , { roomName, mission })
     .then(({ data }) => data);
   }
 
@@ -30,7 +30,11 @@ class GameServer {
     return this.auth.get(`/game/${gameId}/start`)
     .then(({ data }) => data);
   }
+
+
 }
+
+
 
 const gameServer = new GameServer();
 

@@ -32,8 +32,10 @@ class Join extends Component {
       <div>
         <h2>Join a Game</h2>
           <form onSubmit={this.handleSubmit}>
-          <input className="input is-success" placeholder="Introduce Room's name" type="text" name="roomName" onChange={this.handleEdit}/>
-          <input className="input is-success" placeholder="Introduce your Mission" type="text" name="mission"  onChange={this.handleEdit}/>
+          <label>Introduce the name of the room:</label>
+          <input className="input is-success" placeholder="Room's name" type="text" name="roomName" onChange={this.handleEdit}/>
+          <label>And now enter your mission. Remember that it must be something simple, but fun (suck your elbow, make it sing 'La Macarena'...)</label>
+          <input className="input is-success" placeholder="Your Mission" type="text" name="mission"  onChange={this.handleEdit}/>
           <input className="button is-success" type="submit" value="Go!"/>
         </form>
       </div>

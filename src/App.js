@@ -10,6 +10,7 @@ import GameRoom from './pages/game/GameRoom';
 import Create from './pages/game/Create';
 import Join from './pages/game/Join';
 import GameOver from './pages/game/GameOver';
+import './styles.css'
 
 import './index.css';
 
@@ -23,12 +24,12 @@ class App extends Component {
             <Switch>
               <AnonRoute exact path="/" component={HomePage} />
               {/* <PrivateRoute path="/signup" component={Signup} />
-              <PrivateRoute path="/login" component={Login} />              */}
+              <PrivateRoute path="/login" component={Login} /> */}
               <Route exact path="/" component={HomePage} />
               <PrivateRoute path="/profile" component={Profile} />
+              <PrivateRoute path="/game/join" component={Join} />
               <PrivateRoute path="/game/:id/create" component={Create} />
               <PrivateRoute path="/game/:id" component={GameRoom} />
-              <PrivateRoute path="/game/join" component={Join} />
               <PrivateRoute path="/game/over" component={GameOver} />
           </Switch>
           </div>
