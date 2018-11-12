@@ -18,9 +18,8 @@ class GameRoom extends Component {
     killLog:[],
     startedStatus: false, 
     isLoading: true,
+    gameId:'',
 }
-
-
 
   componentDidMount() {
     this.setState({
@@ -39,6 +38,7 @@ class GameRoom extends Component {
         //numberOfSurvivors: game.numberOfSurvivors, adecuar el BE para servir.
         killLog: game.killLog,
         isLoading: false,
+        gameId,
         // startedStatus: game.startedStatus, idem
       })
     })
@@ -72,8 +72,8 @@ class GameRoom extends Component {
         : <div>
             <h1>Game: {roomName}</h1>
             <h3>Admin: {admin}</h3>
-            <Mission userMission={userMission}/>
-            <ParticipantsList participants={participants}/>
+            <Mission userMission={userMission} state={this.state}/>
+            <ParticipantsList participants={participants} state={this.state}/>
           </div>   
        }
        </div>

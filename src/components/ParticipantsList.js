@@ -10,7 +10,9 @@ class ParticipantsList extends Component {
     return (
       <ul>
       {participants.map(participant => {
-        return <li key={participant.username}> {participant.username} </li> 
+        return <li key={participant.username}>
+                  <span > {participant.username} </span> 
+               </li>
         })
       }
       </ul>
