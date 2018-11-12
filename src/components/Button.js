@@ -4,7 +4,7 @@ import { withAuth } from '../lib/authContext';
 class Button extends Component {
 
   handleButton = () => {
-    this.props.handleButton();
+    this.props.handleButton(this.props.state, this.props);
   }
 
   render() {

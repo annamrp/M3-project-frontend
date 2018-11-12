@@ -30,6 +30,10 @@ class GameServer {
     .then(({ data }) => data);
   }
 
+  killUser(gameId, userName) {
+    return this.auth.post(`/game/${gameId}/kill`, { userName })
+    .then(({ data }) => data);
+  }
 
 }
 

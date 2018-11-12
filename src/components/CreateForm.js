@@ -35,10 +35,10 @@ handleSubmit = (event) => {
 
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form className="create-game-form" onSubmit={this.handleSubmit}>
           <input className="input is-success" placeholder="game name" type="text" name="roomName" value={roomName} onChange={this.handleEdit}/>
           <input className="input is-success" placeholder="Introduce a mission" type="text" name="mission" value={mission} onChange={this.handleEdit}/>
-          <input className="button is-success" type="submit" value="Create"/>
+          <input className="btn is-success submit-btn" type="submit" value="Create"/>
         </form>
       </div>
     )
