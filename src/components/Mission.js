@@ -27,12 +27,24 @@ export default class Mission extends Component {
     const gameId = this.state.gameId;
     gameServer.killUser(gameId)
     .then( game => {
-      this.setState(
-
-      )
+      const user = game.participants.find(participant => {
+        return participant.username === this.state.username;
+      });
+      const userId = user._id;
+      const userMission = game.missions.find(mission => {
+        return mission.killer === userId;
+      })
+      const userTarget = game.participants.find(participant => {
+        return participant._id === userMission.target;
+      })
+      userMission.target = userTarget.username;
+      this.setState({
+        userMission,
+        isLoading: false,
+      })
     })
-
   }
+
   
   render() {
     const { isLoading, userMission } = this.state;
