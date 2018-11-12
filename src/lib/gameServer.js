@@ -26,7 +26,6 @@ class GameServer {
   }
 
   startGame(gameId) {
-    console.log(gameId);
     return this.auth.get(`/game/${gameId}/start`)
     .then(({ data }) => data);
   }

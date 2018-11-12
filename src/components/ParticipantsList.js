@@ -5,11 +5,14 @@ class ParticipantsList extends Component {
 
   render() {
 
-    const { participant } = this.props;
+    const { participants } = this.props;
 
     return (
       <ul>
-        <li>{participant}</li>
+      {participants.map(participant => {
+        return <li key={participant.username}> {participant.username} </li> 
+        })
+      }
       </ul>
     )
   }
