@@ -11,10 +11,6 @@ import Join from './pages/game/Join';
 import GameOver from './pages/game/GameOver';
 import './styles.css'
 
-<<<<<<< HEAD
-//import './index.css';
-=======
->>>>>>> 040a21fa2e18ec4ed74eec43b17c7d621f625f13
 
 
 class App extends Component {

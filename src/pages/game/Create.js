@@ -28,7 +28,6 @@ componentDidMount() {
 }
 
 handleStartClick(state, props) {
-  console.log(this.props);
   const { gameId } = this.state;
   gameServer.startGame(gameId)
   .then( game => {
@@ -37,15 +36,15 @@ handleStartClick(state, props) {
   })
 }
 
-renderParticipants() {
-  const { participants } = this.state;
-    return participants.map(participant => {
-    return <ParticipantsList 
-      key = { participant.username }
-      participant = { participant.username }
-      />
-    })
-}
+// renderParticipants() {
+//   const { participants } = this.state;
+//     return participants.map(participant => {
+//     return <ParticipantsList 
+//       key = { participant.username }
+//       participant = { participant.username }
+//       />
+//     })
+// }
 
   render() {
     const { admin, roomName, participants } = this.state;
@@ -56,7 +55,7 @@ renderParticipants() {
         <h3>Admin: {admin} </h3>
         <h3> Participants: 
          
-          { participants ? this.renderParticipants() : null }
+          { participants ? <ParticipantsList participants={participants}/> : null }
           <Button handleButton={this.handleStartClick} state={this.state} props={this.props}>Start Game</Button>
                 
           {/*tenemos que cambiar el boton por un form para incluir cuanto quiere el admin que dure el juego*/}

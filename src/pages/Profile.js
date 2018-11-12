@@ -100,14 +100,14 @@ class Profile extends Component {
                   { this.renderGames() }                  
               </div>
             </div>
-            <Button onClick={ this.toggleEditForm }>Edit profile</Button>
+            <Button handleButton={ this.toggleEditForm }>Edit profile</Button>
               { showEditForm ? <Form onClick={ this.editProfile } profileInfo={ this.state.id } handleSubmit={ this.handleSubmit }/>
                 : null
               }
           </div>
           <div className="profile-btns">
-            <Button onClick={ this.toggleCreateForm }>New Game</Button>
-            <Button onClick={ this.joinGameLink }>Join Game</Button>
+            <Button handleButton={ this.toggleCreateForm }>New Game</Button>
+            <Button handleButton={ this.joinGameLink }>Join Game</Button>
             { showCreateForm ? <CreateForm  onSubmit={ this.handleSubmit } /> : null } 
           </div>
           </div>
