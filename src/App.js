@@ -12,7 +12,7 @@ import Join from './pages/game/Join';
 import GameOver from './pages/game/GameOver';
 import './styles.css'
 
-import './index.css';
+//import './index.css';
 
 
 class App extends Component {
