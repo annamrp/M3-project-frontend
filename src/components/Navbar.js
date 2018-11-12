@@ -5,8 +5,8 @@ class Navbar extends Component {
   render() {  
     
     return (
-      <div>
-          <p>#Hello {this.props.user.username}!</p>
+      <div className="nav-bar">
+          <p className="hello-user">#Hello {this.props.user.username}!</p>
           <p onClick={this.props.logout}>Logout</p>
       </div> 
     )

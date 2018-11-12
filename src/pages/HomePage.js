@@ -21,7 +21,7 @@ class HomePage extends Component {
     return (
       <div className="home-page">
       <img className="logo" src="/img/paranoia.png" alt="paranoia logo"/>
-      <h2 className="info">- How to play -</h2>
+      <h2 className="info bold">- How to play -</h2>
       {showSignup ? <Signup handleLogin={this.handleLogin}/> : <Login handleSignup={this.handleLogin}/>}
         
         

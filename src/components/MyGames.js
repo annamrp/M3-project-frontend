@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withAuth } from '../lib/authContext';
+import { Link } from 'react-router-dom';
 
 class MyGames extends Component {
 
@@ -9,7 +10,7 @@ class MyGames extends Component {
 
     return (
       <div className="my-games">
-        <p>{game.roomName}</p>
+        <Link to={`/game/${game._id}`}><p>{game.roomName}</p></Link>
         {/* <p>Alive/Dead/Pending</p>  */}
       </div>
     )

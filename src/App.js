@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PrivateRoute from './components/PrivateRoute';
 import AnonRoute from './components/AnonRoute';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Profile from './pages/Profile';
 import GameRoom from './pages/game/GameRoom';

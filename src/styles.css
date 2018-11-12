@@ -12,12 +12,24 @@ Colors:
 
 */
 
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 /* ---------------- GENERAL ---------------- */
 
 body {
-  /* font-family: 'Caveat Brush', cursive; */
   font-family: 'Shadows Into Light Two', cursive; 
-
   font-size: 1.5em;  
   margin: 0;
   padding: 0;
@@ -28,10 +40,10 @@ body {
 h1, h2 {
   text-align: center;
 }
-
+/* 
 .container {
   padding: 5px 15px;
-}
+} */
 
 .btn,
 button,
@@ -41,7 +53,6 @@ input[type='submit'] {
   background-color: #FA6D09;
   border-radius: 10px;
   border: 1px solid #D52C05;
-
   color: #fff;
   text-shadow:   1px 1px #3f3f3f; 
   cursor: pointer;
@@ -51,11 +62,8 @@ input[type='submit'] {
   width: 150px;
   text-align: center;
   text-decoration: none;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-family: 'Shadows Into Light Two', cursive; 
-
-  /* font-family: 'Caveat Brush', cursive; */
-  background:    -webkit-linear-gradient(#d52c05, #ffb109);
   background:    linear-gradient(#d52c05, #ffb109);
 }
 
@@ -77,19 +85,31 @@ select {
   height: 2rem;
   padding: .2rem .6rem;
   width: 90%;
-  /* font-family: 'Caveat Brush', cursive; */
   font-family: 'Shadows Into Light Two', cursive; 
-
   font-size: 22px;
-  border:        1px solid #3F3F3F;
-  display:       inline-block;
-  text-align:    center;
+  border: 1px solid #3F3F3F;
+  display: inline-block;
+  text-align: center;
   color: rgb(114, 113, 113);
-  /* text-shadow:   1px 1px #000000; */
-  }
+}
 
+input:select {
+  border: 1px solid #FA6D09;
+}
+
+input.submit-btn {
+  width: 100px;
+}
+
+.bold {
+  text-shadow: 1px 1px #3F3F3F;
+}
 
 /* -------------------- HOME -------------------- */
+
+.home-page {
+  padding: 5px 15px;
+}
 
 img.logo {
   width: 100%;
@@ -100,18 +120,20 @@ h2.info {
   margin: 15px 0 20px 0;
   /* font-size: 1em; */
   color: #FA6D09 ;
-  text-shadow:   1px 1px #3F3F3F 
-
-
+  /* text-shadow:   1px 1px #3F3F3F  */
 }
 
 label.log-sign-label {
   text-align: left;
   font-size: 22px;
-  font-weight: 900;
   text-shadow: .5px .5px #3F3F3F ;
 }
 
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .input, .input-submit {
   margin: 25px 0;
 }
@@ -129,9 +151,62 @@ p.log-sign {
   color: #FA6D09 ;
 }
 
+/* ------------------- NAVBAR- ------------------ */
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #3F3F3F;
+  widows: 100%;
+  color: #F4EFEB;
+  padding: 5px 10px;
+}
+
+.nav-bar p {
+  margin: 5px 0;
+}
+
+.hello-user {
+  font-size: 1.2em;
+  text-transform: capitalize;
+  text-shadow:   1px 1px #FA6D09;
+}
 
 /* ------------------- PROFILE ------------------ */
 
+.user-info {
+  text-align: center;
+
+}
+
+.user-info h2 {
+  text-shadow:   2px 2px 2px #3f3f3f;
+  color: #FA6D09;
+  text-transform: capitalize;
+
+}
+
+.user-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.info-container {
+  text-align: right;
+}
+
+.info-container p, .info-container h4 {
+  margin: 4px 0;
+}
+
+.profile-btns .btn {
+  margin: 25px 15px 10px 20px;
+}
+
+.create-game-form {
+  text-align: center;
+  padding-bottom: 15px;
+}
 /* ----------------- CREATE GAME ---------------- */
 
 /* ------------------ JOIN GAME ----------------- */

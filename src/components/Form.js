@@ -38,7 +38,7 @@ class Form extends Component {
       <form onSubmit={this.handleSubmit}>
       {/* {foto edit} */}
         <input className="input is-success" placeholder={placeholderQuote} type="text" name="Kill Sentence" value={quote} onChange={this.handleEdit}/>
-        <input className="button is-success" type="submit" value="Edit"/>
+        <input className="button is-success submit-btn" type="submit" value="Edit"/>
     </form> 
     )
   }
