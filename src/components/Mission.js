@@ -8,15 +8,17 @@ export default class Mission extends Component {
     username: '',
     userMission: {},
     isLoading: true,
+    numberOfSurvivors: null,
   }
 
   componentDidMount = () => {
-    const { username, gameId } = this.props.state;
+    const { username, gameId, numberOfSurvivors } = this.props.state;
     this.setState({
       username: username,
       userMission: this.props.userMission,
       isLoading: false,
       gameId: gameId,
+      numberOfSurvivors: numberOfSurvivors,
     })  
   }
 
@@ -31,26 +33,32 @@ export default class Mission extends Component {
         return participant.username === this.state.username;
       });
       const userId = user._id;
-      const userMission = game.missions.find(mission => {
+      let userMission = game.missions.find(mission => {
         return mission.killer === userId;
       })
-      const userTarget = game.participants.find(participant => {
-        return participant._id === userMission.target;
-      })
-      userMission.target = userTarget.username;
+      if (userMission) {
+        const userTarget = game.participants.find(participant => {
+          return participant._id === userMission.target;
+        })
+        userMission.target = userTarget.username;
+      } else {
+        userMission = {target: 'no more players', mission: 'no more missions'}
+      }
       this.setState({
         userMission,
         isLoading: false,
+        numberOfSurvivors: game.numberOfSurvivors,
       })
     })
   }
 
   
   render() {
-    const { isLoading, userMission } = this.state;
+    const { isLoading, userMission, numberOfSurvivors} = this.state;
     return (
       <div> {isLoading? <h1>...Loading</h1>
         : <div>
+            <h3>Number of Survivors: {numberOfSurvivors}</h3>
             <p>Your Target: {userMission.target}</p>
             <p>Mission: {userMission.mission}</p>
             <Button handleButton={this.handleKill} state={this.state} props={this.props}>Kill</Button>
