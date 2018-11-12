@@ -88,19 +88,29 @@ class Profile extends Component {
       <div className="profile">
         {isLoading ? <h1>Loading... </h1> : <div>
           <Navbar />
-          <h2>{ user }'s profile</h2>
-          <img src={ image } alt="User"></img>
-          <h5>Kill Sentence: { quote }</h5>
-          <Button handleButton={ this.toggleEditForm }>Edit profile</Button>
-          { showEditForm ? <Form onClick={ this.editProfile } profileInfo={ this.state.id } handleSubmit={ this.handleSubmit }/>
-            : null
-          }
-          <h4>My Games:</h4>
-          { this.renderGames() }
-          <Button handleButton={ this.toggleCreateForm }>Create Game</Button>
-          { showCreateForm ? <CreateForm  onSubmit={ this.handleSubmit } /> : null }
-          <Button handleButton={ this.joinGameLink }>Join Game</Button>
-         </div> 
+          <div className="user-info">
+            <h2>{ user }'s profile</h2> 
+            <h3><span className="bold">Kill Sentence:</span> { quote }</h3>
+            <div className="user-container"> 
+              <div className="img-conainer">
+                <img src={ image } alt="User"/>  
+              </div>
+              <div className="info-container">
+                <h4 className="bold">My Games:</h4>
+                  { this.renderGames() }                  
+              </div>
+            </div>
+            <Button onClick={ this.toggleEditForm }>Edit profile</Button>
+              { showEditForm ? <Form onClick={ this.editProfile } profileInfo={ this.state.id } handleSubmit={ this.handleSubmit }/>
+                : null
+              }
+          </div>
+          <div className="profile-btns">
+            <Button onClick={ this.toggleCreateForm }>New Game</Button>
+            <Button onClick={ this.joinGameLink }>Join Game</Button>
+            { showCreateForm ? <CreateForm  onSubmit={ this.handleSubmit } /> : null } 
+          </div>
+          </div>
         }
       </div>
     )

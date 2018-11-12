@@ -3,6 +3,7 @@ import { withAuth } from '../../lib/authContext';
 import { withRouter } from 'react-router-dom';
 import gameServer from '../../lib/gameServer';
 import Button from '../../components/Button';
+import ParticipantsList from '../../components/ParticipantsList';
 
 class Create extends Component {
 
@@ -36,6 +37,16 @@ handleStartClick(state, props) {
   })
 }
 
+renderParticipants() {
+  const { participants } = this.state;
+    return participants.map(participant => {
+    return <ParticipantsList 
+      key = { participant.username }
+      participant = { participant.username }
+      />
+    })
+}
+
   render() {
     const { admin, roomName, participants } = this.state;
 
@@ -44,15 +55,12 @@ handleStartClick(state, props) {
         <h1>Room Name: {roomName} </h1>
         <h3>Admin: {admin} </h3>
         <h3> Participants: 
-          { participants? participants.map(participant => {
-                return <span key={participant.username}> {participant.username}</span>
-              })
-              : null
-          }
-        <Button handleButton={this.handleStartClick} state={this.state} props={this.props}>Start Game</Button>
+         
+          { participants ? this.renderParticipants() : null }
+          <Button handleButton={this.handleStartClick} state={this.state} props={this.props}>Start Game</Button>
+                
           {/*tenemos que cambiar el boton por un form para incluir cuanto quiere el admin que dure el juego*/}
         </h3>  
-
       </div>
     )
   }

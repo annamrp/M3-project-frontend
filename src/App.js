@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import AuthContext from './lib/authContext';
-
 import AnonRoute from './components/AnonRoute';
 import HomePage from './pages/HomePage';
 import Profile from './pages/Profile';
@@ -12,7 +11,10 @@ import Join from './pages/game/Join';
 import GameOver from './pages/game/GameOver';
 import './styles.css'
 
+<<<<<<< HEAD
 //import './index.css';
+=======
+>>>>>>> 040a21fa2e18ec4ed74eec43b17c7d621f625f13
 
 
 class App extends Component {
