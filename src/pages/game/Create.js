@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { withAuth } from '../../lib/authContext';
 import { withRouter } from 'react-router-dom';
 import gameServer from '../../lib/gameServer';
@@ -10,6 +10,7 @@ class Create extends Component {
     admin:'',
     roomName:'',
     participants:[], 
+    gameId:'',
 }
 
 componentDidMount() {
@@ -20,12 +21,16 @@ componentDidMount() {
       admin: game.admin.username,
       roomName: game.roomName,
       participants: game.participants,
+      gameId,
     })
+    console.log(this.state);
   })
 }
 
 handleStartClick() {
-  const gameId = this.props.match.params.id;
+  console.log(this.state);
+  const { gameId } = this.state;
+  console.log(gameId);
   gameServer.startGame(gameId)
   .then( game => {
     const gameId = game._id;
@@ -47,7 +52,7 @@ handleStartClick() {
               : null
           }
         <Button onClick={this.handleStartClick}>Start Game</Button>
-          
+          {/*tenemos que cambiar el boton por un form para incluir cuanto quiere el admin que dure el juego*/}
         </h3>  
 
       </div>

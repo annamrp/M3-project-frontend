@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import './index.css';
+import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
+import AuthContext from './lib/authContext';
+
 import AnonRoute from './components/AnonRoute';
-import { Route, Switch } from 'react-router-dom'
 import HomePage from './pages/HomePage';
 import Profile from './pages/Profile';
 import GameRoom from './pages/game/GameRoom';
@@ -10,7 +11,8 @@ import Create from './pages/game/Create';
 import Join from './pages/game/Join';
 import GameOver from './pages/game/GameOver';
 
-import AuthContext from './lib/authContext';
+import './index.css';
+
 
 class App extends Component {
   render() {

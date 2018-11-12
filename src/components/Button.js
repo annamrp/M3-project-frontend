@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { withAuth } from '../lib/authContext';
 
 class Button extends Component {
 
   handleButton = () => {
-    this.props.handleButton();
+    this.props.onClick();
   }
 
   render() {
