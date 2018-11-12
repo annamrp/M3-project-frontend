@@ -46,10 +46,11 @@ h1, h2 {
 } */
 
 .btn,
-button,
+/* button, */
 input[type='button'],
 input[type='reset'],
-input[type='submit'] {
+input[type='submit'].btn 
+{
   background-color: #FA6D09;
   border-radius: 10px;
   border: 1px solid #D52C05;
@@ -176,6 +177,35 @@ p.log-sign {
 
 .user-info {
   text-align: center;
+}
+
+.icon {
+  width: 30px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+}
+
+.quote {
+ text-align: center;
+ text-shadow:   1px 1px #FA6D09;
+}
+
+.quote h3 {
+  margin: 5px 0;
+}
+
+.quote input.input {
+  background: transparent;
+  border: none;
+  font-style: italic;
+}
+
+input.edit-btn {
+  
+  width: 15%;
 
 }
 
@@ -183,16 +213,10 @@ p.log-sign {
   text-shadow:   2px 2px 2px #3f3f3f;
   color: #FA6D09;
   text-transform: capitalize;
-
 }
 
-.user-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
 .info-container {
-  text-align: right;
+  text-align: center;
 }
 
 .info-container p, .info-container h4 {
