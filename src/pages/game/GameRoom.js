@@ -32,6 +32,7 @@ class GameRoom extends Component {
         killLog: game.killLog,
         // startedStatus: game.startedStatus, idem
       })
+      console.log(this.state);
     })
   }
 

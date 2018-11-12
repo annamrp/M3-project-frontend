@@ -66,10 +66,6 @@ class Profile extends Component {
     })  
   }
   
-  editProfile = () => {
-    
- };
-
  toggleEditForm = () => {
    const { showEditForm } = this.state;
    this.setState({
