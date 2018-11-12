@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PrivateRoute from './components/PrivateRoute';
 import AnonRoute from './components/AnonRoute';
+import PageNotFound from './components/PageNotFound';
 import { Route, Switch } from 'react-router-dom'
 import HomePage from './pages/HomePage';
 import Profile from './pages/Profile';
@@ -28,6 +29,7 @@ class App extends Component {
               <PrivateRoute path="/game/:id/create" component={Create} />
               <PrivateRoute path="/game/:id" component={GameRoom} />
               <PrivateRoute path="/game/over" component={GameOver} />
+              <PrivateRoute path="/*" component={PageNotFound} />
           </Switch>
           </div>
         </div>

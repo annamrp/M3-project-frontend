@@ -18,6 +18,7 @@ class Profile extends Component {
     image:'',
     showEditForm: false,
     id:'',
+    clicked : false,
   }
 
   joinGameLink = () => {
