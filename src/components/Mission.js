@@ -13,6 +13,7 @@ class Mission extends Component {
     numberOfSurvivors: null,
     admin: '',
     gameId:'',
+    alert: '',
   }
 
   componentDidMount = () => {
@@ -23,7 +24,6 @@ class Mission extends Component {
       isLoading: false,
       gameId: gameId,
       numberOfSurvivors: numberOfSurvivors,
-      alert: '',
     })  
   }
 
@@ -63,17 +63,11 @@ class Mission extends Component {
     .catch()
   }
 
-<<<<<<< HEAD
-  
-  render() {
-    const { isLoading, userMission, numberOfSurvivors, alert } = this.state;
-=======
 
     render() {
-    const { isLoading, userMission, numberOfSurvivors } = this.state;
+    const { isLoading, userMission, numberOfSurvivors, alert } = this.state;
    
 
->>>>>>> cc5864d429775b7549976a8cb73006d356d7ac66
     return (
       <div> {isLoading? <h1>...Loading</h1>
         : <div>
@@ -81,11 +75,7 @@ class Mission extends Component {
             <p>Your Target: {userMission.target}</p>
             <p>Mission: {userMission.mission}</p>
             <Button handleButton={this.handleKill} state={this.state} props={this.props}>Kill</Button>
-<<<<<<< HEAD
             { alert ? <p className="ok-alert">{ alert }</p> : null}
-=======
-            
->>>>>>> cc5864d429775b7549976a8cb73006d356d7ac66
          </div>
       }
       </div>  

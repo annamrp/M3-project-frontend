@@ -24,12 +24,12 @@ class Login extends Component {
       switch(data.error){
         case 'User or password invalid':
           this.setState({
-            alert: 'invalid username'
+            alert: 'invalid username or password'
           });
           break;
         case 'not-found':
           this.setState({
-            alert: 'invalid password'
+            alert: 'invalid username or password'
           });
           break;
         case 'validation':

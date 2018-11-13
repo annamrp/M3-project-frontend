@@ -125,7 +125,7 @@ class Profile extends Component {
           <Navbar  />
           <div className="user-info">
             <div className="img-container">
-              <img src={ image } alt="User" onClick={this.toggleEditImage }/>                
+              <img className="profile-img" src={ image } alt="User" onClick={this.toggleEditImage }/>                
               {showEditImage ? <EditImage handleSubmit={ this.submitImage } imageinfo={image}/> : null}
             </div>
             <div className="quote">

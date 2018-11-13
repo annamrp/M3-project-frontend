@@ -1,5 +1,5 @@
 /* 
-font-family: 'Caveat Brush', cursive;
+
 font-family: 'Shadows Into Light Two', cursive; 
 
 Colors:
@@ -44,6 +44,14 @@ background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, F
 /*---- alerts ---- */
 .warning {
   color: #D52C05;
+  text-align: center;
+  margin: 0 0 3px 0;
+}
+
+.ok-alert {
+  color: green;
+  text-align: center;
+  margin: 2px 0;
 }
 
 h1, h2 {
@@ -145,10 +153,11 @@ label.log-sign-label {
 .log-sign-container {
   padding-top: 60px;
 }
-.input {
+div.input {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 10px 0;
 }
 .input, .input-submit {
   margin: 25px 0;
@@ -162,7 +171,7 @@ label.log-sign-label {
 p.log-sign {
   font-size: 18px;
   text-align: center;
-  margin: 2px 0 5px 0;
+  margin: 10px 0 5px 0;
 }
 
 .toggle-sign-log {
@@ -200,6 +209,11 @@ p.log-sign {
   width: 30px;
   margin: 0 5px;
   margin-top: 15px;
+}
+
+.profile-img {
+  margin-top: 15px;
+  width: 150px;
 }
 
 .quote {
@@ -255,6 +269,4 @@ input.edit-btn {
 
 /* ------------------ JOIN GAME ----------------- */
 /* ------------------ ROOM GAME ----------------- */
-.ok-alert {
-  color: green;
-}
+
