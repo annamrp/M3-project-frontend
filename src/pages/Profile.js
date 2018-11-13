@@ -28,7 +28,6 @@ class Profile extends Component {
   }
 
   handleSubmit = (quote) => {
-    console.log(quote)
    this.setState({
      quote,
    })
@@ -65,8 +64,22 @@ class Profile extends Component {
     return games.map((game) => {
       return <MyGames 
         key={game._id}
-        game={game}/>  
+        game={game}
+        admin={false}/>  
     })  
+  }
+
+  renderAdminGames() {
+    const { games, id } = this.state;
+    const adminGames = games.filter(game => {
+      return (!game.startedStatus && game.admin === id);
+    })
+    return adminGames.map((game) => {
+      return <MyGames 
+        key={game.roomName}
+        game={game}
+        admin={true}/>  
+    }) 
   }
   
  toggleEditForm = () => {
@@ -91,7 +104,6 @@ class Profile extends Component {
   }
 
   submitImage = (image) => {
-    console.log(image)
     this.setState({
       image
     })
@@ -124,6 +136,8 @@ class Profile extends Component {
             <div className="info-container">
             <h4 className="bold">My Games:</h4>
               { this.renderGames() }
+              <h4 className="bold">My Admin Games:</h4>
+              { this.renderAdminGames() }
             </div>
           </div>
           <div className="profile-btns">
