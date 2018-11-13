@@ -28,7 +28,6 @@ class GameRoom extends Component {
     const gameId = this.props.match.params.id;
     gameServer.getGameInfo(gameId)
     .then( game => {
-      console.log(game.numberOfSurvivors);
       game.missions = this.populateMissions(game)
       this.setState({
         username:this.props.user.username,
@@ -63,7 +62,7 @@ class GameRoom extends Component {
   }
 
   render() {
-    const { username, admin, roomName, participants, missions, isLoading, numberOfSurvivors } = this.state;
+    const { username, admin, roomName, participants, missions, isLoading } = this.state;
     const userMission = missions.find( mission => {
       return mission.killer === username;
     });

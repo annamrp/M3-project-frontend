@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { withAuth } from '../lib/authContext';
 import CreateForm from '../components/CreateForm';
 import userServer from '../lib/userServer';
-import Navbar from '../components/Navbar';
 import MyGames from '../components/MyGames';
 import Button from '../components/Button';
 import Form from '../components/Form';
@@ -117,7 +116,6 @@ class Profile extends Component {
     return (
       <div className="profile">
         {isLoading ? <h1>Loading... </h1> : <div>
-          <Navbar />
           <div className="user-info">
             <h2>{ user }'s profile</h2>           
             <img src={ image } alt="User"/> 

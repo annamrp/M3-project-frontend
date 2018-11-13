@@ -10,6 +10,7 @@ import GameRoom from './pages/game/GameRoom';
 import Create from './pages/game/Create';
 import Join from './pages/game/Join';
 import GameOver from './pages/game/GameOver';
+import Navbar from './components/Navbar';
 import './styles.css'
 
 
@@ -20,6 +21,7 @@ class App extends Component {
       <AuthContext>
         <div className="container">
           <div>
+            <Navbar />
             <Switch>
               <AnonRoute exact path="/" component={HomePage} />
               {/* <PrivateRoute path="/signup" component={Signup} />
@@ -28,8 +30,8 @@ class App extends Component {
               <PrivateRoute exact path="/profile" component={Profile} />
               <PrivateRoute  exact path="/game/join" component={Join} />
               <PrivateRoute path="/game/:id/create" component={Create} />
-              <PrivateRoute path="/game/:id" component={GameRoom} />
-              <PrivateRoute exact path="/game/over" component={GameOver} />
+              <PrivateRoute exact path="/game/:id" component={GameRoom} />
+              <PrivateRoute exact path="/game/:id/over" component={GameOver} />
               <PrivateRoute path="/*" component={PageNotFound} />
           </Switch>
           </div>

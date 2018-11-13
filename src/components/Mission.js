@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import Button from '../components/Button';
 import gameServer from '../lib/gameServer';
+import { withAuth } from '../lib/authContext';
+import { withRouter } from 'react-router-dom';
 
-export default class Mission extends Component {
+
+class Mission extends Component {
 
   state = {
     username: '',
@@ -29,6 +32,9 @@ export default class Mission extends Component {
     const gameId = this.state.gameId;
     gameServer.killUser(gameId)
     .then( game => {
+      if (game.numberOfSurvivors <= 1) {
+        this.props.history.push(`/game/${gameId}/over`);
+      } else {
       const user = game.participants.find(participant => {
         return participant.username === this.state.username;
       });
@@ -49,6 +55,7 @@ export default class Mission extends Component {
         isLoading: false,
         numberOfSurvivors: game.numberOfSurvivors,
       })
+      }
     })
   }
 
@@ -68,3 +75,5 @@ export default class Mission extends Component {
     )
   }
 }
+
+export default withAuth(withRouter(Mission));
