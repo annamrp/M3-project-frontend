@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { withAuth } from '../lib/authContext';
 import userServer from '../lib/userServer';
-import Navbar from '../components/Navbar';
 import MyGames from '../components/MyGames';
 import Button from '../components/Button';
 import Form from '../components/Form';
 import EditImage from '../components/EditImage';
+import Navbar from '../components/Navbar';
 
 
 class Profile extends Component {
@@ -122,7 +122,7 @@ class Profile extends Component {
     return (
       <div className="profile">
         {isLoading ? <h1>Loading... </h1> : <div>
-          <Navbar />
+          <Navbar  />
           <div className="user-info">
             <div className="img-container">
               <img src={ image } alt="User" onClick={this.toggleEditImage }/>                

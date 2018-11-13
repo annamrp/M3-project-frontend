@@ -16,6 +16,19 @@ import './styles.css'
 
 
 class App extends Component {
+
+  state = {
+    user: '',
+    games: [],
+    isLoading: true,
+    showCreateForm: false,
+    quote:'',
+    image:'',
+    showEditForm: false,
+    id:'',
+    showEditImage: false,
+  }
+
   render() {
     return (
       <AuthContext>
@@ -28,8 +41,8 @@ class App extends Component {
               <PrivateRoute  exact path="/game/join" component={Join} />
               <PrivateRoute  exact path="/game/create" component={CreateForm} />
               <PrivateRoute path="/game/:id/create" component={Create} />
-              <PrivateRoute path="/game/:id" component={GameRoom} />
-              <PrivateRoute exact path="/game/over" component={GameOver} />
+              <PrivateRoute exact path="/game/:id" component={GameRoom} />
+              <PrivateRoute exact path="/game/:id/over" component={GameOver} />
               <PrivateRoute path="/*" component={PageNotFound} />
           </Switch>
           </div>

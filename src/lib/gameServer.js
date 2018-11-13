@@ -35,6 +35,11 @@ class GameServer {
     .then(({ data }) => data);
   }
 
+  reSortGame(gameId) {
+    return this.auth.get(`/game/${gameId}/sort`)
+    .then(({ data }) => data);
+  }
+
 }
 
 

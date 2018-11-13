@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
-import Button from '../components/Button';
 import gameServer from '../lib/gameServer';
+import { withAuth } from '../lib/authContext';
+import { withRouter } from 'react-router-dom';
+import Button from '../components/Button';
 
-export default class Mission extends Component {
+class Mission extends Component {
 
   state = {
     username: '',
     userMission: {},
     isLoading: true,
     numberOfSurvivors: null,
+    admin: '',
+    gameId:'',
   }
 
   componentDidMount = () => {
-    const { username, gameId, numberOfSurvivors } = this.props.state;
+    const { username, gameId, numberOfSurvivors, admin } = this.props.state;
     this.setState({
       username: username,
       userMission: this.props.userMission,
@@ -30,6 +34,9 @@ export default class Mission extends Component {
     const gameId = this.state.gameId;
     gameServer.killUser(gameId)
     .then( game => {
+      if (game.numberOfSurvivors <= 1) {
+        this.props.history.push(`/game/${gameId}/over`);
+      } else {
       const user = game.participants.find(participant => {
         return participant.username === this.state.username;
       });
@@ -51,12 +58,22 @@ export default class Mission extends Component {
         numberOfSurvivors: game.numberOfSurvivors,
         alert: 'Congratulations, you killed your target!',
       })
+      }
     })
+    .catch()
   }
 
+<<<<<<< HEAD
   
   render() {
     const { isLoading, userMission, numberOfSurvivors, alert } = this.state;
+=======
+
+    render() {
+    const { isLoading, userMission, numberOfSurvivors } = this.state;
+   
+
+>>>>>>> cc5864d429775b7549976a8cb73006d356d7ac66
     return (
       <div> {isLoading? <h1>...Loading</h1>
         : <div>
@@ -64,10 +81,16 @@ export default class Mission extends Component {
             <p>Your Target: {userMission.target}</p>
             <p>Mission: {userMission.mission}</p>
             <Button handleButton={this.handleKill} state={this.state} props={this.props}>Kill</Button>
+<<<<<<< HEAD
             { alert ? <p className="ok-alert">{ alert }</p> : null}
+=======
+            
+>>>>>>> cc5864d429775b7549976a8cb73006d356d7ac66
          </div>
       }
       </div>  
     )
   }
 }
+
+export default withAuth(withRouter(Mission));
