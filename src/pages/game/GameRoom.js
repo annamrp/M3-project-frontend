@@ -35,7 +35,7 @@ class GameRoom extends Component {
         roomName: game.roomName,
         participants: game.participants,
         missions: game.missions,
-        //numberOfSurvivors: game.numberOfSurvivors, adecuar el BE para servir.
+        numberOfSurvivors: game.numberOfSurvivors,
         killLog: game.killLog,
         isLoading: false,
         gameId,
