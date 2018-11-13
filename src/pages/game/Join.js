@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withAuth } from '../../lib/authContext';
 import gameServer from '../../lib/gameServer';
+import Navbar from '../../components/Navbar';
 
 
 class Join extends Component {
@@ -29,6 +30,7 @@ class Join extends Component {
   render() {
     return (
       <div>
+        <Navbar  />
         <h2>Join a Game</h2>
           <form onSubmit={this.handleSubmit}>
           <label>Introduce the name of the room:</label>

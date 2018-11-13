@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withAuth } from '../../lib/authContext';
 import  gameServer  from '../../lib/gameServer';
 import { withRouter } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
 
 class GameOver extends Component {
 
@@ -79,6 +80,7 @@ class GameOver extends Component {
       <div>
         {isLoading? <h1>...Loading</h1>
          : <div> 
+              <Navbar  />
               <h1>winner: {winner} </h1>
                <p>Kill Log</p>
               <div> { killLog.map(killEvent => {
