@@ -10,8 +10,8 @@ class GameServer {
     })
   }
 
-  createGame(roomName, mission) {
-    return this.auth.post('/game/' , { roomName, mission })
+  createGame(roomName, mission, email, message) {
+    return this.auth.post('/game/' , { roomName, mission, email, message })
     .then(({ data }) => data);
   }
 

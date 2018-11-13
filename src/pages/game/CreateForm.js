@@ -20,9 +20,12 @@ handleEdit = event => {
 
 handleSubmit = (event) => {
   event.preventDefault();
+  const emails = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
   const { roomName, mission } = this.state;
   
-  gameServer.createGame(roomName, mission)
+  
+  gameServer.createGame(roomName, mission, emails, message)
   .then( game => {
     const gameId = game._id;
     this.props.history.push(`/game/${gameId}/create`);
@@ -36,18 +39,20 @@ handleSubmit = (event) => {
     return (
       <div>
         <Navbar  />
+        <h4>Create game:</h4>
         <form className="create-game-form" onSubmit={this.handleSubmit}>
           <input className="input is-success" placeholder="game name" type="text" name="roomName" value={roomName} onChange={this.handleEdit}/>
           <input className="input is-success" placeholder="Introduce a mission" type="text" name="mission" value={mission} onChange={this.handleEdit}/>
-          {/* <div className="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
-            </div>
-            <div className="form-group">
-              <label for="message">Message</label>
-              <textarea className="form-control" rows="5" id="message"></textarea>
-            </div> */}
-          <input className="btn is-success submit-btn" type="submit" value="Create"/>
+          <h4>Invite players:</h4>
+          <div className="mail-form">
+            <label htmlFor="email-adress">Email addresses</label>
+            <input type="text" name="email-adress" className="form-control" id="email" />
+          </div>
+         <div className="mail-form">
+            <label htmlFor="message">Message</label>
+            <textarea className="form-message" rows="5" id="message"></textarea>
+          </div>
+          <input className="btn is-success submit-btn" type="submit" value="Invite and create"/>
         </form>
       </div>
     )
