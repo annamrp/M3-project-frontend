@@ -11,7 +11,6 @@ class EditImage extends Component {
 
   fileUpload =  event  => {
     const file = event.target.files[0]
-    console.log(file)
     this.setState({
       image: file
     })
@@ -19,10 +18,10 @@ class EditImage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-   console.log(event)
-    profileServer.editProfile()
+   const {image} = this.state
+    profileServer.editProfile(image)
     .then( game => {
-      this.props.handleSubmit();
+      this.props.handleSubmit(image);
     })
    
   }

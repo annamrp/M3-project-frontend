@@ -37,6 +37,11 @@ body {
   color: #3F3F3F;
 }
 
+/*---- alerts ---- */
+.warning {
+  color: #D52C05;
+}
+
 h1, h2 {
   text-align: center;
 }

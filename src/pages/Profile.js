@@ -17,7 +17,7 @@ class Profile extends Component {
     isLoading: true,
     showCreateForm: false,
     quote:'',
-    image:'',
+    file:'',
     showEditForm: false,
     id:'',
     showEditImage: false,
@@ -33,6 +33,7 @@ class Profile extends Component {
      quote,
    })
    this.toggleEditForm();
+   this.update();
   }
 
   componentDidMount() {
@@ -90,10 +91,10 @@ class Profile extends Component {
     })
   }
 
-  submitImage = (image) => {
-    console.log(image)
+  submitImage = (file) => {
+    console.log(file)
     this.setState({
-      image
+      file
     })
     this.toggleEditImage();
   }
