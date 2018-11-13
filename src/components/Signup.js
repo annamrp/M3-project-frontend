@@ -8,18 +8,19 @@ class Signup extends Component {
   state = {
     username: "",
     password: "",
+    email: "",
   };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const username = this.state.username;
-    const password = this.state.password;
+    const { username, password, email }  = this.state;
 
-    auth.signup({ username, password })
+    auth.signup({ username, password, email })
       .then( (user) => {
         this.setState({
             username: "",
             password: "",
+            email: ""
         });
         this.props.setUser(user);
         this.props.history.push('/profile');
@@ -37,13 +38,17 @@ class Signup extends Component {
     this.props.handleLogin()
   }
   render() {
-    const { username, password } = this.state;
+    const { username, password, email } = this.state;
     return (
       <div className="signup">
         <form onSubmit={this.handleFormSubmit}>
           <div className="input">
             <label className="log-sign-label">Username:</label>
             <input type="text" name="username" value={username} onChange={this.handleChange}/>
+          </div>
+          <div className="input">
+            <label className="log-sign-label">Email:</label>
+            <input type="text" name="email" value={email} onChange={this.handleChange}/>
           </div>
           <div className="input">
             <label className="log-sign-label">Password:</label>

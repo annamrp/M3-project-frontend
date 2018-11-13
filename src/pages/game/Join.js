@@ -34,7 +34,9 @@ class Join extends Component {
           <form onSubmit={this.handleSubmit}>
           <label>Introduce the name of the room:</label>
           <input className="input is-success" placeholder="Room's name" type="text" name="roomName" onChange={this.handleEdit}/>
-          <label>And now enter your mission. Remember that it must be something simple, but fun (like make someone sing 'La Macarena' or try to touch his nose with his tongue )</label>
+          <div>
+          <label>To enter your mission, remember:<br />· It must be something simple, but fun (sing 'La Macarena' or try to touch the nose with his tongue)<br />· The mission should not be directed to anyone in particular</label>
+          </div>
           <input className="input is-success" placeholder="Your Mission" type="text" name="mission"  onChange={this.handleEdit}/>
           <input className="btn is-success" type="submit" value="Go!"/>
         </form>
