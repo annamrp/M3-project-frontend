@@ -7,7 +7,7 @@ class Join extends Component {
 
   state = {
     roomName: '',
-    mission: ''
+    mission: '',
   }
 
   handleEdit = event => {
@@ -22,9 +22,8 @@ class Join extends Component {
 
     gameServer.joinGame(roomName, mission)
     .then (() => {
-      this.props.history.push('/profile')
+      this.props.history.push('/profile', this.state.alert)
     })
-
   }
  
   render() {

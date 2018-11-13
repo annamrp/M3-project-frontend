@@ -16,8 +16,8 @@ class ProfileServer {
   }
 
 
-  editProfile(userInfo, userId) {
-    return this.user.patch(`/user/${userId}/edit`, {userInfo})
+  editProfile(userInfo, userId, image) {
+    return this.user.patch(`/user/${userId}/edit`, {userInfo, image})
     .then(({ data }) => data);
   }
 

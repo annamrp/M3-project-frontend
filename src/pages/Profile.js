@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { withAuth } from '../lib/authContext';
-import CreateForm from '../components/CreateForm';
 import userServer from '../lib/userServer';
-import Navbar from '../components/Navbar';
 import MyGames from '../components/MyGames';
 import Button from '../components/Button';
 import Form from '../components/Form';
 import EditImage from '../components/EditImage';
+import Navbar from '../components/Navbar';
 
 
 class Profile extends Component {
@@ -15,9 +14,8 @@ class Profile extends Component {
     user: '',
     games: [],
     isLoading: true,
-    showCreateForm: false,
     quote:'',
-    image:'',
+    file:'',
     showEditForm: false,
     id:'',
     showEditImage: false,
@@ -27,11 +25,16 @@ class Profile extends Component {
     this.props.history.push('/game/join')
   }
 
+  createNewGameLink = () => {
+    this.props.history.push('/game/create')
+  }
+
   handleSubmit = (quote) => {
    this.setState({
      quote,
    })
    this.toggleEditForm();
+   this.update();
   }
 
   componentDidMount() {
@@ -89,12 +92,12 @@ class Profile extends Component {
    })
  }
 
- toggleCreateForm = () => {
-    const { showCreateForm } = this.state;
-    this.setState({
-      showCreateForm: !showCreateForm,
-    })
-  }
+//  toggleCreateForm = () => {
+//     const { showCreateForm } = this.state;
+//     this.setState({
+//       showCreateForm: !showCreateForm,
+//     })
+//   }
 
   toggleEditImage = () => {
     const { showEditImage } = this.state
@@ -103,47 +106,47 @@ class Profile extends Component {
     })
   }
 
-  submitImage = (image) => {
+  submitImage = (file) => {
+    console.log(file)
     this.setState({
-      image
+      file
     })
     this.toggleEditImage();
   }
 
   render() {
 
-    const { id, user, quote, showEditForm, showCreateForm, isLoading, image, showEditImage} = this.state;
+    const { id, quote, showEditForm,isLoading, image, showEditImage} = this.state;
     
     return (
       <div className="profile">
         {isLoading ? <h1>Loading... </h1> : <div>
-          <Navbar />
+          <Navbar  />
           <div className="user-info">
-            <h2>{ user }'s profile</h2>           
-            <img src={ image } alt="User"/> 
-            {showEditImage ? <EditImage handleSubmit={ this.submitImage } imageinfo={image}/> : null}
-            <div className="icons"> 
-              <div>
-                <img className="icon" src='img/image-edit.png' alt='edit form' onClick={this.toggleEditImage }/>
-              </div>
-              <div>            
-                <img className="icon" src='img/Edit-icon.png' alt='edit quote' onClick={ this.toggleEditForm }/>
-              </div>
+            <div className="img-container">
+              <img src={ image } alt="User" onClick={this.toggleEditImage }/>                
+              {showEditImage ? <EditImage handleSubmit={ this.submitImage } imageinfo={image}/> : null}
             </div>
             <div className="quote">
               {showEditForm ? <Form profileInfo={ id } handleSubmit={ this.handleSubmit }/> : <div> {!quote ? <h3>'Kill sentence'</h3> : <h3>{ quote }</h3>} </div>} 
+              <div>            
+                <img className="icon" src='img/Edit-icon.png' alt='edit quote' onClick={ this.toggleEditForm }/>
+              </div>              
             </div>
+             
+          </div>
             <div className="info-container">
             <h4 className="bold">My Games:</h4>
               { this.renderGames() }
-              <h4 className="bold">My Admin Games:</h4>
+              <h4 className="bold"> Admin Pending Games:</h4>
               { this.renderAdminGames() }
             </div>
-          </div>
+         
           <div className="profile-btns">
-          <Button handleButton={ this.toggleCreateForm }>New Game</Button>
+          {/* { showCreateForm ? <CreateForm  onSubmit={ this.handleSubmit } /> : null }  */}
+
+          <Button handleButton={ this.createNewGameLink }>New Game</Button>
           <Button handleButton={ this.joinGameLink }>Join Game</Button>
-          { showCreateForm ? <CreateForm  onSubmit={ this.handleSubmit } /> : null } 
         </div>
       </div>}
       </div>
