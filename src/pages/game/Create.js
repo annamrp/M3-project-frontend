@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import gameServer from '../../lib/gameServer';
 import Button from '../../components/Button';
 import ParticipantsList from '../../components/ParticipantsList';
+import Navbar from '../../components/Navbar';
 
 class Create extends Component {
 
@@ -42,6 +43,7 @@ handleStartClick(state, props) {
 
     return (
       <div>
+        <Navbar  />
         <h1>Room Name: {roomName} </h1>
         <h3>Admin: {admin} </h3>
         <h3> Participants: 

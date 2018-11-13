@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withAuth } from '../../lib/authContext';
 import gameServer from '../../lib/gameServer';
+import Navbar from '../../components/Navbar';
 
 
 class Join extends Component {
@@ -29,13 +30,16 @@ class Join extends Component {
   render() {
     return (
       <div>
+        <Navbar  />
         <h2>Join a Game</h2>
           <form onSubmit={this.handleSubmit}>
           <label>Introduce the name of the room:</label>
-          <input className="input" placeholder="Room's name" type="text" name="roomName" onChange={this.handleEdit}/>
-          <label>And now enter your mission. Remember that it must be something simple, but fun (like make someone sing 'La Macarena' or try to touch his nose with his tongue )</label>
-          <input className="input" placeholder="Your Mission" type="text" name="mission"  onChange={this.handleEdit}/>
-          <input className="btn" type="submit" value="Go!"/>
+          <input className="input is-success" placeholder="Room's name" type="text" name="roomName" onChange={this.handleEdit}/>
+          <div>
+          <label>To enter your mission, remember:<br />· It must be something simple, but fun (sing 'La Macarena' or try to touch the nose with his tongue)<br />· The mission should not be directed to anyone in particular</label>
+          </div>
+          <input className="input is-success" placeholder="Your Mission" type="text" name="mission"  onChange={this.handleEdit}/>
+          <input className="btn is-success" type="submit" value="Go!"/>
         </form>
       </div>
     )

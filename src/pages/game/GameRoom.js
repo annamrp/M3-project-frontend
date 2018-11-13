@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import ParticipantsList from '../../components/ParticipantsList';
 import Mission from '../../components/Mission';
 import Button from '../../components/Button';
+import Navbar from '../../components/Navbar';
 
 class GameRoom extends Component {
 
@@ -28,20 +29,23 @@ class GameRoom extends Component {
     })
     const gameId = this.props.match.params.id;
     gameServer.getGameInfo(gameId)
-    .then( game => {
-      game.missions = this.populateMissions(game)
-      this.setState({
-        username:this.props.user.username,
-        admin: game.admin.username,
-        roomName: game.roomName,
-        participants: game.participants,
-        missions: game.missions,
-        numberOfSurvivors: game.numberOfSurvivors,
-        killLog: game.killLog,
-        isLoading: false,
-        gameId,
-        // startedStatus: game.startedStatus, idem
+      .then( game => {
+        game.missions = this.populateMissions(game)
+        this.setState({
+          username:this.props.user.username,
+          admin: game.admin.username,
+          roomName: game.roomName,
+          participants: game.participants,
+          missions: game.missions,
+          numberOfSurvivors: game.numberOfSurvivors,
+          killLog: game.killLog,
+          isLoading: false,
+          gameId,
+          // startedStatus: game.startedStatus, idem
+        })
       })
+    .catch(err => {
+      console.log(err)
     })
   }
 
@@ -89,6 +93,7 @@ class GameRoom extends Component {
       <div>
        {isLoading ? <h1>...isLoading</h1>
         : <div>
+            <Navbar  />
             <h1>Game: {roomName}</h1>
             <h3>Admin: {admin}</h3>
             <h3>User: {username}</h3>

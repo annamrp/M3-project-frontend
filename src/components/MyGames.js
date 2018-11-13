@@ -6,20 +6,26 @@ class MyGames extends Component {
 
   state = {
     startedStatus: null,
+    gameFinished: null,
   }
 
   renderGameRoomDetail () {
     const { game } = this.props; 
-    if (game.startedStatus) {
+    const { gameFinished } = game;
+    if (gameFinished) {
+      return <Link to={`/game/${game._id}/over`}><p>{game.roomName} finished</p></Link>
+    } 
+    else if (game.startedStatus) {
     return <Link to={`/game/${game._id}`}><p>{game.roomName}</p></Link>
     }
+
     return <p>{ game.roomName } pending</p>
   }
 
   render() {
 
     const { game, admin } = this.props; 
-    const { gameStatus } = game;
+    //const { gameStatus } = game;
 
     return (
       <div className="my-games">

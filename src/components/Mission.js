@@ -24,6 +24,8 @@ class Mission extends Component {
       isLoading: false,
       gameId: gameId,
       numberOfSurvivors: numberOfSurvivors,
+      alert: '',
+      admin,
     })  
   }
 
@@ -63,11 +65,9 @@ class Mission extends Component {
     .catch()
   }
 
-
-    render() {
+  
+  render() {
     const { isLoading, userMission, numberOfSurvivors, alert } = this.state;
-   
-
     return (
       <div> {isLoading? <h1>...Loading</h1>
         : <div>
