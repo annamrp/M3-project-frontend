@@ -6,6 +6,7 @@ import MyGames from '../components/MyGames';
 import Button from '../components/Button';
 import Form from '../components/Form';
 import EditImage from '../components/EditImage';
+import Navbar from '../components/Navbar';
 
 
 class Profile extends Component {
@@ -116,6 +117,7 @@ class Profile extends Component {
     return (
       <div className="profile">
         {isLoading ? <h1>Loading... </h1> : <div>
+          <Navbar  />
           <div className="user-info">
             <h2>{ user }'s profile</h2>           
             <img src={ image } alt="User"/> 

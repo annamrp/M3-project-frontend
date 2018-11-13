@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import Button from '../components/Button';
 import gameServer from '../lib/gameServer';
 import { withAuth } from '../lib/authContext';
 import { withRouter } from 'react-router-dom';
-
+import Button from '../components/Button';
 
 class Mission extends Component {
 
@@ -12,16 +11,19 @@ class Mission extends Component {
     userMission: {},
     isLoading: true,
     numberOfSurvivors: null,
+    admin: '',
+    gameId:'',
   }
 
   componentDidMount = () => {
-    const { username, gameId, numberOfSurvivors } = this.props.state;
+    const { username, gameId, numberOfSurvivors, admin } = this.props.state;
     this.setState({
       username: username,
       userMission: this.props.userMission,
       isLoading: false,
       gameId: gameId,
       numberOfSurvivors: numberOfSurvivors,
+      admin,
     })  
   }
 
@@ -57,11 +59,14 @@ class Mission extends Component {
       })
       }
     })
+    .catch()
   }
 
-  
-  render() {
-    const { isLoading, userMission, numberOfSurvivors} = this.state;
+
+    render() {
+    const { isLoading, userMission, numberOfSurvivors } = this.state;
+   
+
     return (
       <div> {isLoading? <h1>...Loading</h1>
         : <div>
@@ -69,6 +74,7 @@ class Mission extends Component {
             <p>Your Target: {userMission.target}</p>
             <p>Mission: {userMission.mission}</p>
             <Button handleButton={this.handleKill} state={this.state} props={this.props}>Kill</Button>
+            
          </div>
       }
       </div>  

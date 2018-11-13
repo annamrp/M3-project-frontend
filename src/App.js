@@ -10,18 +10,29 @@ import GameRoom from './pages/game/GameRoom';
 import Create from './pages/game/Create';
 import Join from './pages/game/Join';
 import GameOver from './pages/game/GameOver';
-import Navbar from './components/Navbar';
 import './styles.css'
 
 
 
 class App extends Component {
+
+  state = {
+    user: '',
+    games: [],
+    isLoading: true,
+    showCreateForm: false,
+    quote:'',
+    image:'',
+    showEditForm: false,
+    id:'',
+    showEditImage: false,
+  }
+
   render() {
     return (
       <AuthContext>
         <div className="container">
           <div>
-            <Navbar />
             <Switch>
               <AnonRoute exact path="/" component={HomePage} />
               {/* <PrivateRoute path="/signup" component={Signup} />

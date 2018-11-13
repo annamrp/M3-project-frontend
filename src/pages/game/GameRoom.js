@@ -4,6 +4,7 @@ import gameServer from '../../lib/gameServer';
 import { withRouter } from 'react-router-dom';
 import ParticipantsList from '../../components/ParticipantsList';
 import Mission from '../../components/Mission';
+import Button from '../../components/Button';
 
 class GameRoom extends Component {
 
@@ -61,11 +62,29 @@ class GameRoom extends Component {
     return missions;
   }
 
+  handleReSort = (state, props) => {
+    this.setState({
+      isLoading: true
+    })
+    const gameId = this.state.gameId;
+    gameServer.reSortGame(gameId)
+    .then( game => {
+      game.missions = this.populateMissions(game)
+      console.log(game.missions);
+      this.setState({
+        isLoading: false,
+        missions: game.missions,
+      })
+    })
+    .catch()
+  }
+
   render() {
     const { username, admin, roomName, participants, missions, isLoading } = this.state;
     const userMission = missions.find( mission => {
       return mission.killer === username;
     });
+    const isUserAdmin = admin === username;
     return (
       <div>
        {isLoading ? <h1>...isLoading</h1>
@@ -75,6 +94,10 @@ class GameRoom extends Component {
             <h3>User: {username}</h3>
             <Mission userMission={userMission} state={this.state}/>
             <ParticipantsList participants={participants} state={this.state}/>
+            { isUserAdmin? <Button handleButton={this.handleReSort} 
+                state={this.state} props={this.props}> Re-Sort Game </Button>
+                : null
+            }
           </div>   
        }
        </div>
