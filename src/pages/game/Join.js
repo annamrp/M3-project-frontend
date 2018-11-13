@@ -7,7 +7,7 @@ class Join extends Component {
 
   state = {
     roomName: '',
-    mission: ''
+    mission: '',
   }
 
   handleEdit = event => {
@@ -22,9 +22,8 @@ class Join extends Component {
 
     gameServer.joinGame(roomName, mission)
     .then (() => {
-      this.props.history.push('/profile')
+      this.props.history.push('/profile', this.state.alert)
     })
-
   }
  
   render() {
@@ -33,10 +32,10 @@ class Join extends Component {
         <h2>Join a Game</h2>
           <form onSubmit={this.handleSubmit}>
           <label>Introduce the name of the room:</label>
-          <input className="input is-success" placeholder="Room's name" type="text" name="roomName" onChange={this.handleEdit}/>
+          <input className="input" placeholder="Room's name" type="text" name="roomName" onChange={this.handleEdit}/>
           <label>And now enter your mission. Remember that it must be something simple, but fun (like make someone sing 'La Macarena' or try to touch his nose with his tongue )</label>
-          <input className="input is-success" placeholder="Your Mission" type="text" name="mission"  onChange={this.handleEdit}/>
-          <input className="btn is-success" type="submit" value="Go!"/>
+          <input className="input" placeholder="Your Mission" type="text" name="mission"  onChange={this.handleEdit}/>
+          <input className="btn" type="submit" value="Go!"/>
         </form>
       </div>
     )

@@ -51,7 +51,7 @@ class Signup extends Component {
   render() {
     const { username, password, alert } = this.state;
     return (
-      <div className="signup">
+      <div className="signup log-sign-container">
         <form onSubmit={this.handleFormSubmit}>
           <div className="input">
             <label className="log-sign-label">Username:</label>
@@ -63,7 +63,7 @@ class Signup extends Component {
           </div>
           { alert ? <p className="warning">{alert}</p> :  null}
           <div className="input-submit">
-            <input className="log-signup-btn" type="submit" value="SignUp" />
+            <input className="log-signup-btn btn" type="submit" value="SignUp" />
           </div>
         </form>
           <p className="log-sign">Already have an account? <span className="toggle-sign-log" onClick={this.handleLogin}>Login</span></p>

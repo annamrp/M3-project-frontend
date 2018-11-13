@@ -19,6 +19,7 @@ export default class Mission extends Component {
       isLoading: false,
       gameId: gameId,
       numberOfSurvivors: numberOfSurvivors,
+      alert: '',
     })  
   }
 
@@ -48,13 +49,14 @@ export default class Mission extends Component {
         userMission,
         isLoading: false,
         numberOfSurvivors: game.numberOfSurvivors,
+        alert: 'Congratulations, you killed your target!',
       })
     })
   }
 
   
   render() {
-    const { isLoading, userMission, numberOfSurvivors} = this.state;
+    const { isLoading, userMission, numberOfSurvivors, alert } = this.state;
     return (
       <div> {isLoading? <h1>...Loading</h1>
         : <div>
@@ -62,6 +64,7 @@ export default class Mission extends Component {
             <p>Your Target: {userMission.target}</p>
             <p>Mission: {userMission.mission}</p>
             <Button handleButton={this.handleKill} state={this.state} props={this.props}>Kill</Button>
+            { alert ? <p className="ok-alert">{ alert }</p> : null}
          </div>
       }
       </div>  

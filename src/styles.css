@@ -33,7 +33,11 @@ body {
   font-size: 1.5em;  
   margin: 0;
   padding: 0;
-  background-color: #F4EFEB ;
+  background: #FFEFBA;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  /* background-color: #F4EFEB; */
   color: #3F3F3F;
 }
 
@@ -128,6 +132,9 @@ h2.info {
   color: #FA6D09 ;
   /* text-shadow:   1px 1px #3F3F3F  */
 }
+h2.info:hover {
+  color: #F7AE60;
+}
 
 label.log-sign-label {
   text-align: left;
@@ -135,6 +142,9 @@ label.log-sign-label {
   text-shadow: .5px .5px #3F3F3F ;
 }
 
+.log-sign-container {
+  padding-top: 60px;
+}
 .input {
   display: flex;
   flex-direction: column;
@@ -146,11 +156,13 @@ label.log-sign-label {
 
 .input-submit {
   text-align: center;
+  margin: 5px 0;
 }
 
 p.log-sign {
   font-size: 18px;
   text-align: center;
+  margin: 2px 0 5px 0;
 }
 
 .toggle-sign-log {
@@ -186,16 +198,17 @@ p.log-sign {
 
 .icon {
   width: 30px;
-}
-
-.icons {
-  display: flex;
-  justify-content: center;
+  margin: 0 5px;
+  margin-top: 15px;
 }
 
 .quote {
  text-align: center;
  text-shadow:   1px 1px #FA6D09;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin: 0px 15px;
 }
 
 .quote h3 {
@@ -206,11 +219,13 @@ p.log-sign {
   background: transparent;
   border: none;
   font-style: italic;
+  margin: 0;
 }
 
-input.edit-btn {
-  
+input.edit-btn { 
   width: 15%;
+  color: #FA6D09;
+  font-size: 14px;
 
 }
 
@@ -239,3 +254,7 @@ input.edit-btn {
 /* ----------------- CREATE GAME ---------------- */
 
 /* ------------------ JOIN GAME ----------------- */
+/* ------------------ ROOM GAME ----------------- */
+.ok-alert {
+  color: green;
+}

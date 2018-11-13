@@ -13,6 +13,7 @@ class MyGames extends Component {
     if (game.startedStatus) {
     return <Link to={`/game/${game._id}`}><p>{game.roomName}</p></Link>
     }
+    return <p>{ game.roomName } pending</p>
   }
 
   render() {

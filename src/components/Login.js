@@ -21,7 +21,6 @@ class Login extends Component {
     })
     .catch( error => {
       const { data } = error.response;
-      console.log(data.error)
       switch(data.error){
         case 'User or password invalid':
           this.setState({
@@ -58,7 +57,7 @@ class Login extends Component {
   render() {
     const { username, password, alert } = this.state;
     return (
-      <div className="login">
+      <div className="login log-sign-container">
         <form onSubmit={ this.handleFormSubmit } >
           <div className="input"> 
             <label className="log-sign-label">Username:</label>
@@ -70,7 +69,7 @@ class Login extends Component {
           </div>
           { alert ? <p className="warning">{ alert }</p> :  null}
           <div className="input-submit">
-            <input className="log-signup-btn" type="submit" value="Login" />
+            <input className="log-signup-btn btn" type="submit" value="Login" />
           </div>
           <p className="log-sign">Don't you have an acount? <span className="toggle-sign-log" onClick={ this.handleSignup }>SignUp</span></p>
         </form>
