@@ -35,9 +35,16 @@ handleSubmit = (event) => {
     return (
       <div>
         <form className="create-game-form" onSubmit={this.handleSubmit}>
-          
-          <input className="input is-success" placeholder="game name" type="text" name="roomName" value={roomName} onChange={this.handleEdit}/>
+         <input className="input is-success" placeholder="game name" type="text" name="roomName" value={roomName} onChange={this.handleEdit}/>
           <input className="input is-success" placeholder="Introduce a mission" type="text" name="mission" value={mission} onChange={this.handleEdit}/>
+          {/* <div className="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
+            </div>
+            <div className="form-group">
+              <label for="message">Message</label>
+              <textarea className="form-control" rows="5" id="message"></textarea>
+            </div> */}
           <input className="btn is-success submit-btn" type="submit" value="Create"/>
         </form>
       </div>
