@@ -18,7 +18,6 @@ class EditImage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-<<<<<<< HEAD
     const formData = new FormData();
     const file = this.state.image;
     formData.append("picture", file)
@@ -28,12 +27,6 @@ class EditImage extends Component {
       this.setState({
         image: user.image
       })
-=======
-   const {image} = this.state
-    profileServer.editProfile(image)
-    .then( game => {
-      this.props.handleSubmit(image);
->>>>>>> 3e78c1d1a254f97a7fee99d4cd5a72e90fbae651
     })
    
   }
