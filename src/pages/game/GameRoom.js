@@ -18,9 +18,8 @@ class GameRoom extends Component {
     killLog:[],
     startedStatus: false, 
     isLoading: true,
+    gameId:'',
 }
-
-
 
   componentDidMount() {
     this.setState({
@@ -29,6 +28,7 @@ class GameRoom extends Component {
     const gameId = this.props.match.params.id;
     gameServer.getGameInfo(gameId)
     .then( game => {
+      console.log(game.numberOfSurvivors);
       game.missions = this.populateMissions(game)
       this.setState({
         username:this.props.user.username,
@@ -36,9 +36,10 @@ class GameRoom extends Component {
         roomName: game.roomName,
         participants: game.participants,
         missions: game.missions,
-        //numberOfSurvivors: game.numberOfSurvivors, adecuar el BE para servir.
+        numberOfSurvivors: game.numberOfSurvivors,
         killLog: game.killLog,
         isLoading: false,
+        gameId,
         // startedStatus: game.startedStatus, idem
       })
     })
@@ -62,7 +63,7 @@ class GameRoom extends Component {
   }
 
   render() {
-    const { username, admin, roomName, participants, missions, isLoading } = this.state;
+    const { username, admin, roomName, participants, missions, isLoading, numberOfSurvivors } = this.state;
     const userMission = missions.find( mission => {
       return mission.killer === username;
     });
@@ -72,8 +73,9 @@ class GameRoom extends Component {
         : <div>
             <h1>Game: {roomName}</h1>
             <h3>Admin: {admin}</h3>
-            <Mission userMission={userMission}/>
-            <ParticipantsList participants={participants}/>
+            <h3>User: {username}</h3>
+            <Mission userMission={userMission} state={this.state}/>
+            <ParticipantsList participants={participants} state={this.state}/>
           </div>   
        }
        </div>

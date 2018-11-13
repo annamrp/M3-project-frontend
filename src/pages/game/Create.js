@@ -36,15 +36,6 @@ handleStartClick(state, props) {
   })
 }
 
-// renderParticipants() {
-//   const { participants } = this.state;
-//     return participants.map(participant => {
-//     return <ParticipantsList 
-//       key = { participant.username }
-//       participant = { participant.username }
-//       />
-//     })
-// }
 
   render() {
     const { admin, roomName, participants } = this.state;

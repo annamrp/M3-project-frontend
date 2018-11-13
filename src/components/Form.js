@@ -7,7 +7,9 @@ class Form extends Component {
 
   state = {
     changeQuote: false,
-    quote: ''
+    changeImage: false,
+    quote: '',
+    image: '',
   }
 
   handleEdit = event => {
