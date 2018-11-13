@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withAuth } from '../../lib/authContext';
 import gameServer from '../../lib/gameServer';
 import { withRouter } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
 
 class CreateForm extends Component {
 
@@ -34,8 +35,9 @@ handleSubmit = (event) => {
 
     return (
       <div>
+        <Navbar  />
         <form className="create-game-form" onSubmit={this.handleSubmit}>
-         <input className="input is-success" placeholder="game name" type="text" name="roomName" value={roomName} onChange={this.handleEdit}/>
+          <input className="input is-success" placeholder="game name" type="text" name="roomName" value={roomName} onChange={this.handleEdit}/>
           <input className="input is-success" placeholder="Introduce a mission" type="text" name="mission" value={mission} onChange={this.handleEdit}/>
           {/* <div className="form-group">
               <label for="exampleInputEmail1">Email address</label>
