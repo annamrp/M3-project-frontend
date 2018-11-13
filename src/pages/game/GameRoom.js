@@ -29,6 +29,7 @@ class GameRoom extends Component {
     const gameId = this.props.match.params.id;
     gameServer.getGameInfo(gameId)
     .then( game => {
+      console.log(game.missions);
       game.missions = this.populateMissions(game)
       this.setState({
         username:this.props.user.username,

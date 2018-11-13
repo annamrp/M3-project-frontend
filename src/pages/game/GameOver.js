@@ -80,6 +80,7 @@ class GameOver extends Component {
         {isLoading? <h1>...Loading</h1>
          : <div> 
               <h1>winner: {winner} </h1>
+               <p>Kill Log</p>
               <div> { killLog.map(killEvent => {
                 return (
                   <div key={killEvent.mission}>

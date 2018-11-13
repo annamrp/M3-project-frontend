@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import AuthContext from './lib/authContext';
 import AnonRoute from './components/AnonRoute';

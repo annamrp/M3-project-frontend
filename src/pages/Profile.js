@@ -56,7 +56,6 @@ class Profile extends Component {
         quote: data.user.quote,
         id: data.user._id,
       })
-      console.log(this.props.history)
     })
     .catch(error => {
       console.log(error)
@@ -117,7 +116,7 @@ class Profile extends Component {
 
   render() {
 
-    const { id, quote, showEditForm, showCreateForm, isLoading, image, showEditImage} = this.state;
+    const { id, quote, showEditForm,isLoading, image, showEditImage} = this.state;
     
     return (
       <div className="profile">
