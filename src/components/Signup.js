@@ -24,20 +24,26 @@ class Signup extends Component {
             email: ""
         });
         this.props.setUser(user);
-        this.props.history.push('/profile');
-        
+        this.props.history.push('/profile');        
       })
       .catch( error => {
         const { data } = error.response;
-        if ( data.error === 'empty') {
-        this.setState({
-          alert: 'username or password can´t be empty'
-        })
-        } else if (data.error === 'username-not-unique') {
-          this.setState({
-            alert: 'username already in use'
-          })
-        }
+        switch(data.error){
+          case 'empty':
+            this.setState({
+              alert: 'username or password can´t be empty'
+            });
+            break;
+          case 'username-not-unique':
+            this.setState({
+              alert: 'username already in use'
+            });
+            break;
+          default:
+            this.setState({
+              alert: ''
+            })
+        }   
       })
   }
 
@@ -53,6 +59,7 @@ class Signup extends Component {
     const { username, password, alert, email } = this.state;
     return (
       <div className="signup log-sign-container">
+        { alert ? <p className="warning">{alert}</p> :  null}
         <form onSubmit={this.handleFormSubmit}>
           <div className="input">
             <label className="log-sign-label">Username:</label>
@@ -66,7 +73,6 @@ class Signup extends Component {
             <label className="log-sign-label">Password:</label>
             <input type="password" name="password" value={password} onChange={this.handleChange} />
           </div>
-          { alert ? <p className="warning">{alert}</p> :  null}
           <div className="input-submit">
             <input className="log-signup-btn btn" type="submit" value="SignUp" />
           </div>

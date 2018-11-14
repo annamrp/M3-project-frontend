@@ -58,6 +58,7 @@ class Login extends Component {
     const { username, password, alert } = this.state;
     return (
       <div className="login log-sign-container">
+        { alert ? <p className="warning">{ alert }</p> :  null}
         <form onSubmit={ this.handleFormSubmit } >
           <div className="input"> 
             <label className="log-sign-label">Username:</label>
@@ -67,7 +68,6 @@ class Login extends Component {
             <label className="log-sign-label">Password:</label>
             <input type="password" name="password" value={ password } onChange={ this.handleChange } />
           </div>
-          { alert ? <p className="warning">{ alert }</p> :  null}
           <div className="input-submit">
             <input className="log-signup-btn btn" type="submit" value="Login" />
           </div>

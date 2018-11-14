@@ -1,6 +1,5 @@
 /* 
-
-font-family: 'Shadows Into Light Two', cursive; 
+font-family: 'Raleway', sans-serif;
 
 Colors:
   #F4EFEB - claro
@@ -29,38 +28,24 @@ body {
 /* ---------------- GENERAL ---------------- */
 
 body {
-  font-family: 'Shadows Into Light Two', cursive; 
+  font-family: 'Raleway', sans-serif;
   font-size: 1.5em;  
   margin: 0;
   padding: 0;
-  background: #FFEFBA;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  /* background-color: #F4EFEB; */
   color: #3F3F3F;
-}
-
-/*---- alerts ---- */
-.warning {
-  color: #D52C05;
-  text-align: center;
-  margin: 0 0 3px 0;
-}
-
-.ok-alert {
-  color: green;
-  text-align: center;
-  margin: 2px 0;
+  background: #ffffff;
+  background: -moz-radial-gradient(center, ellipse cover, #ffffff 0%, #ffffff 20%, #f7eee4 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #ffffff), color-stop(20%, #ffffff), color-stop(100%, #f7eee4));
+  background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%, #ffffff 20%, #f7eee4 100%);
+  background: -o-radial-gradient(center, ellipse cover, #ffffff 0%, #ffffff 20%, #f7eee4 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #ffffff 0%, #ffffff 20%, #f7eee4 100%);
+  background: radial-gradient(ellipse at center, #ffffff 0%, #ffffff 20%, #f7eee4 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7eee4', GradientType=1 );
 }
 
 h1, h2 {
   text-align: center;
 }
-/* 
-.container {
-  padding: 5px 15px;
-} */
 
 .btn,
 /* button, */
@@ -72,16 +57,14 @@ input[type='submit'].btn
   border-radius: 10px;
   border: 1px solid #D52C05;
   color: #fff;
-  text-shadow:   1px 1px #3f3f3f; 
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 0.1em;
   height: 2.2rem;
-  width: 150px;
+  width: 110px;
   text-align: center;
   text-decoration: none;
-  /* text-transform: uppercase; */
-  font-family: 'Shadows Into Light Two', cursive; 
+  font-family: 'Raleway', sans-serif;
   background:    linear-gradient(#d52c05, #ffb109);
 }
 
@@ -103,12 +86,12 @@ select {
   height: 2rem;
   padding: .2rem .6rem;
   width: 90%;
-  font-family: 'Shadows Into Light Two', cursive; 
-  font-size: 22px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
   border: 1px solid #3F3F3F;
   display: inline-block;
   text-align: center;
-  color: rgb(114, 113, 113);
+  color: #000000;
 }
 
 input:select {
@@ -119,9 +102,21 @@ input.submit-btn {
   width: 100px;
 }
 
-.bold {
-  text-shadow: 1px 1px #3F3F3F;
+/*---- alerts ---- */
+.warning, .ok-alert {
+  text-align: center;
+  font-size: 16px;
 }
+.warning {
+  color: #D52C05;
+  margin: 0 0 3px 0;
+}
+
+.ok-alert {
+  color: green;
+  margin: 2px 0;
+}
+
 
 /* -------------------- HOME -------------------- */
 
@@ -131,14 +126,12 @@ input.submit-btn {
 
 img.logo {
   width: 100%;
-  margin-top: 50px
+  margin-top: 30px
 }
 
 h2.info {
   margin: 15px 0 20px 0;
-  /* font-size: 1em; */
   color: #FA6D09 ;
-  /* text-shadow:   1px 1px #3F3F3F  */
 }
 h2.info:hover {
   color: #F7AE60;
@@ -147,9 +140,12 @@ h2.info:hover {
 label.log-sign-label {
   text-align: left;
   font-size: 22px;
-  text-shadow: .5px .5px #3F3F3F ;
+  font-weight: 600;
 }
 
+div.login.log-sign-container {
+  padding-top: 120px;
+}
 .log-sign-container {
   padding-top: 60px;
 }
@@ -165,11 +161,11 @@ div.input {
 
 .input-submit {
   text-align: center;
-  margin: 5px 0;
+  margin: 15px 0 5px 0;
 }
 
 p.log-sign {
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
   margin: 10px 0 5px 0;
 }
@@ -183,18 +179,40 @@ p.log-sign {
 .nav-bar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: #3F3F3F;
   widows: 100%;
   color: #F4EFEB;
   padding: 5px 10px;
 }
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.nav-img {
+  border-radius: 50%;
+  width: 40px;
+  box-shadow:1px 1px #F4EFEB;
+  padding-left: 2px;
+}
 
 .nav-bar p {
-  margin: 5px 0;
+  margin: 5px 8px;
+  color: #F4EFEB;
+  text-shadow:   1px 1px #FA6D09;
+}
+
+.logout {
+  font-size: 18px;
+}
+
+.decoration-none {
+  text-decoration: none;
 }
 
 .hello-user {
-  font-size: 1.2em;
+  font-size: 22px;
   text-transform: capitalize;
   text-shadow:   1px 1px #FA6D09;
 }
@@ -212,13 +230,19 @@ p.log-sign {
 }
 
 .profile-img {
-  margin-top: 15px;
-  width: 150px;
+  margin-top: 25px;
+  width: 45%;
+  height: 45%;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 10px 16px -9px #777;
+  -moz-box-shadow: 0 10px 16px -9px #777;
+  box-shadow: 0 10px 16px -9px #777;
 }
+
 
 .quote {
  text-align: center;
- text-shadow:   1px 1px #FA6D09;
+ text-shadow:   0.7px 0.8px #FA6D09;
  display: flex;
  justify-content: center;
  align-items: center;
@@ -236,35 +260,80 @@ p.log-sign {
   margin: 0;
 }
 
-input.edit-btn { 
-  width: 15%;
-  color: #FA6D09;
-  font-size: 14px;
-
-}
-
 .user-info h2 {
-  text-shadow:   2px 2px 2px #3f3f3f;
   color: #FA6D09;
   text-transform: capitalize;
 }
 
-.info-container {
+.profile-btns .btn {
+  margin: 45px 15px 10px 10px;
+}
+
+.profile-btns {
   text-align: center;
 }
 
-.info-container p, .info-container h4 {
-  margin: 4px 0;
-}
-
 .profile-btns .btn {
-  margin: 25px 15px 10px 20px;
+  width: 150px;
+  font-size: 16px;
 }
 
 .create-game-form {
   text-align: center;
   padding-bottom: 15px;
 }
+
+/* ----- MyGames ---- */
+
+.info-container {
+  text-align: center;
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.games {
+  width: 45%;
+  margin: 0 5px;
+  text-align: center;
+}
+
+.games h5 {
+  padding-bottom: 5px;
+}
+
+.game-list {
+  margin: 10px 0;
+  padding-top: 20px;
+  font-size: 16px;
+  /* background:    linear-gradient(#9c9c9c, #fff); */
+  background:rgba(90,90,90,0.1); 
+  border-radius: 5%;
+  width: 100%;
+  height: 60px;
+  border: 0.5px solid rgba(80,80,80,0.3);
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+  color: #FA6D09;
+}
+
+.info-container p, .info-container h5 {
+  margin: 4px 0;
+}
+
+.pending {
+  color: #A6A6AD;
+}
+
+.active {
+  color: green;
+}
+
+.finished {
+  color: #AD4747;
+}
+
 /* ----------------- CREATE GAME ---------------- */
 
 /* ------------------ JOIN GAME ----------------- */

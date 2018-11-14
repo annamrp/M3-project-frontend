@@ -92,13 +92,6 @@ class Profile extends Component {
    })
  }
 
-//  toggleCreateForm = () => {
-//     const { showCreateForm } = this.state;
-//     this.setState({
-//       showCreateForm: !showCreateForm,
-//     })
-//   }
-
   toggleEditImage = () => {
     const { showEditImage } = this.state
     this.setState({
@@ -129,25 +122,26 @@ class Profile extends Component {
             </div>
             <div className="quote">
               {showEditForm ? <Form profileInfo={ id } handleSubmit={ this.handleSubmit }/> : <div> {!quote ? <h3>'Kill sentence'</h3> : <h3>{ quote }</h3>} </div>} 
-              <div>            
+              {showEditForm ? null :<div>               
                 <img className="icon" src='img/Edit-icon.png' alt='edit quote' onClick={ this.toggleEditForm }/>
-              </div>              
-            </div>
-             
+              </div>  }            
+            </div>            
           </div>
-            <div className="info-container">
-            <h4 className="bold">My Games:</h4>
-              { this.renderGames() }
-              <h4 className="bold"> Admin Pending Games:</h4>
-              { this.renderAdminGames() }
-            </div>
-         
           <div className="profile-btns">
-          {/* { showCreateForm ? <CreateForm  onSubmit={ this.handleSubmit } /> : null }  */}
+            <Button handleButton={ this.createNewGameLink }>New Game</Button>
+            <Button handleButton={ this.joinGameLink }>Join Game</Button>
+          </div>
+          <div className="info-container">
+            <div className="games">
+              <h5>My Games:</h5>
+                { this.renderGames() }
+            </div>
+            <div className="games">
+              <h5>Admin Games:</h5>
+                { this.renderAdminGames() }
+            </div>        
+          </div>
 
-          <Button handleButton={ this.createNewGameLink }>New Game</Button>
-          <Button handleButton={ this.joinGameLink }>Join Game</Button>
-        </div>
       </div>}
       </div>
     )

@@ -34,13 +34,13 @@ class Form extends Component {
 
   render() {  
     const {quote} = this.state;
-    // const placeholderQuote = this.props.profileInfo.quote;
     
     return (
       <form onSubmit={this.handleSubmit}>
       {/* {foto edit} */}
-        <input className="input is-success" placeholder="Introduce your kill sentence" type="text" name="Kill Sentence" value={quote} onChange={this.handleEdit}/>
-        <input className="button is-success edit-btn" type="submit" value="Edit"/>
+        <input className="input is-success" placeholder="your kill sentence" type="text" name="Kill Sentence" value={quote} onChange={this.handleEdit}/>
+        {/* <input className="button is-success edit-btn" type="submit" value=""/> */}
+        <input className="icon" type="image" src='img/Edit-icon.png' alt="icon submit"/>
     </form> 
     )
   }
