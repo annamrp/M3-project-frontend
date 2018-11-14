@@ -27,6 +27,7 @@ class EditImage extends Component {
       this.setState({
         image: user.image
       })
+      this.props.handleSubmit(file);
     })
    
   }

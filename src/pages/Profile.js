@@ -20,6 +20,7 @@ class Profile extends Component {
     showEditForm: false,
     id:'',
     showEditImage: false,
+    prueba: false,
   }
 
   joinGameLink = () => {
@@ -101,11 +102,12 @@ class Profile extends Component {
   }
 
   submitImage = (file) => {
-    console.log(file)
+
     this.setState({
-      file
+      file,
     })
     this.toggleEditImage();
+    this.update();
   }
 
   render() {

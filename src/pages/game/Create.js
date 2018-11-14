@@ -3,7 +3,7 @@ import { withAuth } from '../../lib/authContext';
 import { withRouter } from 'react-router-dom';
 import gameServer from '../../lib/gameServer';
 import Button from '../../components/Button';
-import ParticipantsList from '../../components/ParticipantsList';
+import CreateParticipantList from '../../components/CreateParticipantList';
 import Navbar from '../../components/Navbar';
 
 class Create extends Component {
@@ -48,7 +48,7 @@ handleStartClick(state, props) {
         <h3>Admin: {admin} </h3>
         <h3> Participants: 
          
-          { participants ? <ParticipantsList participants={participants}/> : null }
+          { participants ? <CreateParticipantList participants={participants}/> : null }
           <Button handleButton={this.handleStartClick} state={this.state} props={this.props}>Start Game</Button>
                 
           {/*tenemos que cambiar el boton por un form para incluir cuanto quiere el admin que dure el juego*/}

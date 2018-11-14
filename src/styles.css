@@ -429,4 +429,12 @@ input.btn.send-create {
 
 /* ------------------ JOIN GAME ----------------- */
 /* ------------------ ROOM GAME ----------------- */
+.ok-alert {
+  color: green;
+}
 
+/*-------------------- PARTICIPANTS LIST -------------*/
+
+.crossed {
+  text-decoration: line-through;
+}

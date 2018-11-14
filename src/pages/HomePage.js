@@ -15,6 +15,8 @@ class HomePage extends Component {
     })
   }
 
+  
+
 
   render() {
     const {showSignup} = this.state
@@ -23,8 +25,6 @@ class HomePage extends Component {
       <img className="logo" src="/img/paranoia.png" alt="paranoia logo"/>
       <h3 className="slogan">Frase descriptiva</h3>
       {showSignup ? <Signup handleLogin={this.handleLogin}/> : <Login handleSignup={this.handleLogin}/>}
-        
-        
       </div>
     )
   }
