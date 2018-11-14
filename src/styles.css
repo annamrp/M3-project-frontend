@@ -398,40 +398,180 @@ p.game-list {
 }
 
 .form-input {
-  margin: 25px 0;
+  margin: 20px 0;
 }
 
 .header {
   color: #FA6D09;
   text-shadow: .5px .2px #3F3F3F;
   text-align: center;
-  margin: 20px 0 5px 0;
+  margin: 15px 0 5px 0;
 }
 
-.header.invite {
-  padding-top: 15px;
+.header.create {
+  padding-top: 5px;
 }
 
 .text-area {
-  height: 100px;
+  height: 80px;
   text-align: justify;
+}
+
+.form-input.mail {
+  margin-bottom: 0;
+}
+
+.icon.add {
+  margin-top: 3px;
+  margin-left: 178px;
+  width: 7%;
+}
+
+li.email-li {
+  font-size: 16px;
+  list-style-type: none;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.email-list {
+  margin: 3px 0;
+}
+
+.icon.delete {
+  margin: 0;
+  width: 10%;
+}
+
+input.add-email {
+  text-align: right;
+  color: #FA6D09;
+  font-size: 14px;
 }
 
 .form-input textarea {
   margin-bottom: 0px;
 }
 
+.form-input .input {
+  margin: 5px 0;
+}
+
+.input.email {
+  margin-left: 20px;
+}
+
 input.btn.send-create {
   width: 200px;
-
 }
 
 
 /* ------------------ JOIN GAME ----------------- */
+
+.header.join {
+  padding: 25px 0 25px 0;
+}
+
+.form-input.join .input {
+  margin-left: 20px;
+}
+
+.join-info {
+  font-size: 18px;
+  padding: 15px 20px 0 20px;
+  text-align: justify;
+}
+
+.join-info-list {
+  padding: 10px 0;
+}
+
+.btn-container {
+  text-align: center;
+}
+
+input.btn.join {
+  width: 150px;
+  margin-top: 10px;
+}
+
 /* ------------------ ROOM GAME ----------------- */
 .ok-alert {
   color: green;
 }
+
+.game-room {
+  padding: 0 20px ;
+}
+
+
+
+
+
+
+.users-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin-features h4, .participant-li {
+  text-transform: capitalize;
+}
+
+p.subheading {
+  margin: 0;
+  color: #F4EFEB;
+  font-size: .8em;
+  text-align: center;
+  text-shadow: 1px 1px  #3F3F3F;
+}
+
+.survivors {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(80,80,80,0.3);
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+  /* background:rgba(250,109,9,0.7); */
+  background: linear-gradient(#d52c05, #ffb109);
+  margin: 0 auto;
+}
+
+.survivors-num {
+  text-align: center;
+  font-size: 4em;
+  margin: 0;
+  color:  #F4EFEB;
+  text-shadow: 1px 1px  #3F3F3F;
+}
+
+.mission-card {
+  border: 0.5px solid rgba(80,80,80,0.3);
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+  background:rgba(90,90,90,0.1); 
+  border-radius: 10px;
+  margin-top: 25px;
+}
+
+.target-mission {
+  padding: 5px 10px;
+  font-size: 18px;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.kill-btn {
+  text-align: right;
+  padding: 0 10px 10px 5px;
+}
+
 
 /*-------------------- PARTICIPANTS LIST -------------*/
 

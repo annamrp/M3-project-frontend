@@ -2,7 +2,7 @@ import React from "react";
 import Popup from "reactjs-popup";
 
 const HowToplay= () => (
-  <Popup trigger={<img className="info-icon" src="img/info.png" alt="info icon"/>} position="left top">
+  <Popup trigger={<img className="info-icon" src="/img/info.png" alt="info icon"/>} position="left top">
      {close => (
       <div className="popup">
         {/* <a href='#' className="close" onClick={close}>
