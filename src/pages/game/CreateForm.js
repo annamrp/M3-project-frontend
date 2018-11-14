@@ -3,12 +3,15 @@ import { withAuth } from '../../lib/authContext';
 import gameServer from '../../lib/gameServer';
 import { withRouter } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
+import EmailForm from '../../components/EmailForm';
+import DeleteEmail from '../../components/DeleteEmail';
 
 class CreateForm extends Component {
 
   state = {
     roomName:'', 
-    mission: '' 
+    mission: '',
+    emails: [],
 }
 
 handleEdit = event => {
@@ -20,12 +23,16 @@ handleEdit = event => {
 
 handleSubmit = (event) => {
   event.preventDefault();
-  const emails = document.getElementById('email').value;
   const message = document.getElementById('message').value;
-  const { roomName, mission } = this.state;
-  
-  
-  gameServer.createGame(roomName, mission, emails, message)
+  const { roomName, mission, emails } = this.state;
+  let emailString;
+  if (typeof emails === Array) {
+     emailString = emails.join(', ');
+  } else {
+    emailString = emails;
+  }
+  console.log(emailString);
+  gameServer.createGame(roomName, mission, emailString, message)
   .then( game => {
     const gameId = game._id;
     this.props.history.push(`/game/${gameId}/create`);
@@ -33,21 +40,48 @@ handleSubmit = (event) => {
  
 }
 
-  render() {
-    const { roomName, mission } = this.state;
+handleSubmitEmail = (value) => {
+  const { emails } = this.state;
+  emails.push(`${value}`);
+  this.setState({
+    emails,
+  })
+  console.log(emails);
+}
 
+handleDeleteEmail = (index) => {
+  const { emails } = this.state;
+  emails.splice(index, 1);
+  this.setState({
+    emails,
+  })
+}
+
+  render() {
+    const { roomName, mission, emails } = this.state;
+    
     return (
       <div>
         <Navbar  />
         <h4>Create game:</h4>
+        <h4>Invite players:</h4>
+        <EmailForm onSubmit={this.handleSubmitEmail} />
+        <div> {emails ? <ul>
+                  { emails.map((email, index) => {
+                    return <DeleteEmail 
+                      emails={email} 
+                      key={index}
+                      index={index}
+                      onDelete={this.handleDeleteEmail} 
+                    />
+                  })}
+                </ul>
+                : null 
+                }
+          </div>
         <form className="create-game-form" onSubmit={this.handleSubmit}>
           <input className="input is-success" placeholder="game name" type="text" name="roomName" value={roomName} onChange={this.handleEdit}/>
           <input className="input is-success" placeholder="Introduce a mission" type="text" name="mission" value={mission} onChange={this.handleEdit}/>
-          <h4>Invite players:</h4>
-          <div className="mail-form">
-            <label htmlFor="email-adress">Email addresses</label>
-            <input type="text" name="email-adress" className="form-control" id="email" />
-          </div>
          <div className="mail-form">
             <label htmlFor="message">Message</label>
             <textarea className="form-message" rows="5" id="message"></textarea>
