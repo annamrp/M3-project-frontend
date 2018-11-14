@@ -8,7 +8,7 @@ class Form extends Component {
   state = {
     changeQuote: false,
     changeImage: false,
-    quote: '',
+    quote: this.props.quote,
     image: '',
   }
 
@@ -33,14 +33,14 @@ class Form extends Component {
   }
 
   render() {  
-    const {quote} = this.state;
+    const { quote } = this.state;
     
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="quote-form" onSubmit={this.handleSubmit}>
       {/* {foto edit} */}
-        <input className="input is-success" placeholder="your kill sentence" type="text" name="Kill Sentence" value={quote} onChange={this.handleEdit}/>
+        <input className="input is-success" autofocus="true" placeholder={ quote } type="text" name="Kill Sentence" value={quote} onChange={this.handleEdit}/>
         {/* <input className="button is-success edit-btn" type="submit" value=""/> */}
-        <input className="icon" type="image" src='img/Edit-icon.png' alt="icon submit"/>
+        <input className="icon" type="image" src='img/ok.png' alt="icon submit"/>
     </form> 
     )
   }

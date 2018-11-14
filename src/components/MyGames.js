@@ -14,16 +14,25 @@ class MyGames extends Component {
     const { gameFinished } = game;
     if (gameFinished) {
       return <Link className="decoration-none" to={`/game/${ game._id }/over`}>
-        <p className="game-list">{ game.roomName } <span className="finished">finished</span></p>
+        <div className="game-list">
+          <p className="game-room">{ game.roomName }</p>
+          <p className="finished">finished</p>
+        </div>
       </Link>
     } 
     else if (game.startedStatus) {
     return <Link className="decoration-none"  to={`/game/${ game._id }`}>
-        <p className="game-list">{ game.roomName } <span className="active">active</span></p>
+        <div className="game-list">
+          <p className="game-room">{ game.roomName }</p> 
+          <p className="active">active</p>
+        </div>
       </Link>
     }
 
-    return <p className="game-list">{ game.roomName } <span className="pending">pending</span></p>
+    return <div className="game-list">
+        <p className="game-room">{ game.roomName }</p> 
+        <p className="pending">pending</p>
+      </div>
   }
 
   render() {
@@ -33,7 +42,7 @@ class MyGames extends Component {
 
     return (
       <div className="my-games">
-       { admin ? <Link className="decoration-none" to={`/game/${ game._id }/create`}><p className="game-list">{ game.roomName }</p></Link>
+       { admin ? <Link className="decoration-none" to={`/game/${ game._id }/create`}><p className="game-list admin">{ game.roomName }</p></Link>
         : this.renderGameRoomDetail() 
       }
       </div>
