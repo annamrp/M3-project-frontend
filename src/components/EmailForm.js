@@ -25,8 +25,11 @@ class EmailForm extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" value={value} onChange={this.handleChangeInput}/>
-        <input type="submit" value="add email"/>
+        <div className="form-input mail">
+          <label className="label">Email address</label>
+          <input className="input email" type="text" value={value} onChange={this.handleChangeInput} placeholder="email-1@email.com"/>
+          <input className="icon add" type="image" src='/img/add.png' alt="icon submit"/>
+        </div>
       </form>
     )
   }

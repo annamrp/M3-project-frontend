@@ -118,25 +118,34 @@ class GameRoom extends Component {
     return (
        <div> 
           {isLoading ? <h1>...isLoading</h1>
-            : <div>
+            : <div >
                 <Navbar  />
-                <h1>Game: {roomName}</h1>
-                <h3>Admin: {admin}</h3>
-                <h3>User: {username}</h3>
-                {(userStatus === 'alive')? <Mission userMission={userMission} state={this.state}>
-                  </Mission>
-                  : <h3>You have been killed by: {userDead.killer} for: {userDead.mission}</h3>
-                 }  
-                 <ul>
-                  {participants.map(participant => {
-                      return <ParticipantsList key={participant.username} participant={participant} participants={participants} state={this.state}/>
-                      })
-                    }
-                </ul>
-                { isUserAdmin? <Button handleButton={this.handleReSort} 
-                    state={this.state} props={this.props}> Re-Sort Game </Button>
-                    : null
-                }
+                <div className="game-room">
+                  <h2 className="header">{roomName}</h2>
+                  {(userStatus === 'alive')? <Mission userMission={userMission} state={this.state}>
+                    </Mission>
+                    : <h3>You have been killed by: {userDead.killer} for: {userDead.mission}</h3>
+                  }  
+                  <div className="users-info">
+                    <div className="participants-features">
+                      <h4>Participants</h4>
+                      <ul className="participants-list">
+                        
+                        {participants.map(participant => {
+                            return <ParticipantsList key={participant.username} participant={participant} participants={participants} state={this.state}/>
+                            })
+                          }
+                      </ul>
+                    </div>
+                    <div className="admin-features">
+                      <h4>Admin: {admin}</h4>
+                      { isUserAdmin? <Button handleButton={this.handleReSort} 
+                          state={this.state} props={this.props}> Re-Sort Game </Button>
+                          : null
+                      }
+                    </div>
+                  </div>
+                </div>
               </div>   
           }
           </div>  
