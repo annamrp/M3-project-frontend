@@ -13,13 +13,17 @@ class MyGames extends Component {
     const { game } = this.props; 
     const { gameFinished } = game;
     if (gameFinished) {
-      return <Link to={`/game/${game._id}/over`}><p>{game.roomName} finished</p></Link>
+      return <Link className="decoration-none" to={`/game/${ game._id }/over`}>
+        <p className="game-list">{ game.roomName } <span className="finished">finished</span></p>
+      </Link>
     } 
     else if (game.startedStatus) {
-    return <Link to={`/game/${game._id}`}><p>{game.roomName}</p></Link>
+    return <Link className="decoration-none"  to={`/game/${ game._id }`}>
+        <p className="game-list">{ game.roomName } <span className="active">active</span></p>
+      </Link>
     }
 
-    return <p>{ game.roomName } pending</p>
+    return <p className="game-list">{ game.roomName } <span className="pending">pending</span></p>
   }
 
   render() {
@@ -29,10 +33,9 @@ class MyGames extends Component {
 
     return (
       <div className="my-games">
-       { admin ? <Link to={`/game/${game._id}/create`}><span>{game.roomName}</span></Link>
+       { admin ? <Link className="decoration-none" to={`/game/${ game._id }/create`}><p className="game-list">{ game.roomName }</p></Link>
         : this.renderGameRoomDetail() 
       }
-        {/* <p>Alive/Dead/Pending</p>  */}
       </div>
     )
   }

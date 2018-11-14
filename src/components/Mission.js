@@ -13,6 +13,7 @@ class Mission extends Component {
     numberOfSurvivors: null,
     admin: '',
     gameId:'',
+    alert: '',
   }
 
   componentDidMount = () => {
