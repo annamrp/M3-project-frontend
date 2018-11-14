@@ -13,6 +13,7 @@ class CreateForm extends Component {
     roomName:'', 
     mission: '',
     emails: [],
+    alert:'',
 }
 
 handleEdit = event => {
@@ -37,6 +38,13 @@ handleSubmit = (event) => {
     const gameId = game._id;
     this.props.history.push(`/game/${gameId}/create`);
   })
+  .catch(data => {
+    if (data.response.status === 422) {
+      this.setState({
+        alert: 'Game name and Mission are required',
+      })
+    }
+  })
  
 }
 
@@ -57,7 +65,7 @@ handleDeleteEmail = (index) => {
 }
 
   render() {
-    const { roomName, mission, emails } = this.state;
+    const { roomName, mission, emails, alert } = this.state;
     
     return (
       <div>
@@ -86,6 +94,7 @@ handleDeleteEmail = (index) => {
             <textarea className="form-message text-area" rows="5" id="message" placeholder="remember include the name of your game"></textarea>
           </div>
           <h4 className="header create">Create game</h4>
+          { alert ? <p className="warning">{ alert }</p> :  null}
           <div className="form-input">
             <label className="label">Introduce a name for your game</label>
             <input className="input" placeholder="game name" type="text" name="roomName" value={roomName} onChange={this.handleEdit}/>
@@ -94,18 +103,6 @@ handleDeleteEmail = (index) => {
             <label className="label">And now, your funny mission</label>
             <input className="input" placeholder="Introduce a mission" type="text" name="mission" value={mission} onChange={this.handleEdit}/>
           </div>
-        
-       
-          {/* <h4 className="header invite">Invite players:</h4> */}
-          
-          {/* <div className="form-input">
-            <label className="label" htmlFor="email-adress">Email addresses</label>
-            <input className="form-message form-control" type="text" name="email-adress"  id="email" placeholder="email-1@email.com, email-2@email.com..."/>
-          </div> */}
-          {/* <div className="form-input">
-            <label className="label" htmlFor="message" >Message</label>
-            <textarea className="form-message text-area" rows="5" id="message" placeholder="remember include the name of the game"></textarea>
-          </div> */}
           <input className="btn send-create" type="submit" value="Invite and create"/>
         </form>
       </div>

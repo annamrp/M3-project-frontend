@@ -10,6 +10,7 @@ class Join extends Component {
   state = {
     roomName: '',
     mission: '',
+    alert:'',
   }
 
   handleEdit = event => {
@@ -26,18 +27,26 @@ class Join extends Component {
     .then (() => {
       this.props.history.push('/profile', this.state.alert)
     })
+    .catch(error => {
+      this.setState({
+        alert:'Invalid game name',
+      })
+    })
   }
  
   render() {
+    const { alert } = this.state;
     return (
       <div>
         <HowToplay/>
         <Navbar  />     
+        
         <h3 className="header join">Join a Game</h3>
         <form onSubmit={this.handleSubmit}>
           <div className="form-input join">
             <label className="label">Introduce the name of the room</label>
             <input className="input" placeholder="Room's name" type="text" name="roomName" onChange={this.handleEdit}/>
+            { alert ? <p className="warning">{ alert }</p> :  null}
           </div>
           <div className="join-info">
             <div >
