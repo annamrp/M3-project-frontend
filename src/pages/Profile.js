@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import Form from '../components/Form';
 import EditImage from '../components/EditImage';
 import Navbar from '../components/Navbar';
+import HowToplay from '../components/HowToplay';
 
 
 class Profile extends Component {
@@ -90,7 +91,7 @@ class Profile extends Component {
    const { showEditForm } = this.state;
    this.setState({
      showEditForm: !showEditForm,
-   })
+   }) 
  }
 
   toggleEditImage = () => {
@@ -117,13 +118,14 @@ class Profile extends Component {
       <div className="profile">
         {isLoading ? <h1>Loading... </h1> : <div>
           <Navbar  />
+          <HowToplay/>
           <div className="user-info">
             <div className="img-container">
               <img className="profile-img" src={ image } alt="User" onClick={this.toggleEditImage }/>                
               {showEditImage ? <EditImage handleSubmit={ this.submitImage } imageinfo={image}/> : null}
             </div>
             <div className="quote">
-              {showEditForm ? <Form profileInfo={ id } handleSubmit={ this.handleSubmit }/> : <div> {!quote ? <h3>'Kill sentence'</h3> : <h3>{ quote }</h3>} </div>} 
+              {showEditForm ? <Form profileInfo={ id } quote={ quote } handleSubmit={ this.handleSubmit }/> : <div> {!quote ? <h3>'Kill sentence'</h3> : <h3>{ quote }</h3>} </div>} 
               {showEditForm ? null :<div>               
                 <img className="icon" src='img/Edit-icon.png' alt='edit quote' onClick={ this.toggleEditForm }/>
               </div>  }            
