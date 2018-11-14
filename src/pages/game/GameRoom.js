@@ -19,6 +19,7 @@ class GameRoom extends Component {
     numberOfSurvivors: null,
     killLog:[],
     startedStatus: false, 
+    userStatus: null,
     isLoading: true,
     gameId:'',
 }
@@ -31,8 +32,14 @@ class GameRoom extends Component {
     gameServer.getGameInfo(gameId)
       .then( game => {
         game.missions = this.populateMissions(game)
+        game.killLog = this.populateKillLog(game);
+        const { username } = this.props.user;
+        const userDead = game.killLog.find(killEvent => {
+          return (killEvent.target === username);
+        });
+        let userStatus = userDead? 'dead' : 'alive';
         this.setState({
-          username:this.props.user.username,
+          username:username,
           admin: game.admin.username,
           roomName: game.roomName,
           participants: game.participants,
@@ -41,6 +48,8 @@ class GameRoom extends Component {
           killLog: game.killLog,
           isLoading: false,
           gameId,
+          userStatus,
+          userDead,
           // startedStatus: game.startedStatus, idem
         })
       })
@@ -66,6 +75,23 @@ class GameRoom extends Component {
     return missions;
   }
 
+  populateKillLog = (game) => {
+    const killLog = game.killLog.map(killEvent => {
+       for (let i = 0; i <game.participants.length; i++) {
+          if (killEvent.killer === game.participants[i]._id) {
+            killEvent.killer = game.participants[i].username;
+          }
+       }
+       for (let i = 0; i <game.participants.length; i++) {
+        if (killEvent.target === game.participants[i]._id) {
+          killEvent.target = game.participants[i].username;
+        }  
+     }
+     return killEvent;
+    })
+    return killLog;
+  }
+
   handleReSort = (state, props) => {
     this.setState({
       isLoading: true
@@ -84,29 +110,36 @@ class GameRoom extends Component {
   }
 
   render() {
-    const { username, admin, roomName, participants, missions, isLoading } = this.state;
+    const { username, admin, roomName, participants, missions, isLoading, userStatus, userDead } = this.state;
     const userMission = missions.find( mission => {
       return mission.killer === username;
     });
     const isUserAdmin = admin === username;
     return (
-      <div>
-       {isLoading ? <h1>...isLoading</h1>
-        : <div>
-            <Navbar  />
-            <h1>Game: {roomName}</h1>
-            <h3>Admin: {admin}</h3>
-            <h3>User: {username}</h3>
-            <Mission userMission={userMission} state={this.state}/>
-            <ParticipantsList participants={participants} state={this.state}/>
-            { isUserAdmin? <Button handleButton={this.handleReSort} 
-                state={this.state} props={this.props}> Re-Sort Game </Button>
-                : null
-            }
-          </div>   
-       }
-       </div>
-       
+       <div> 
+          {isLoading ? <h1>...isLoading</h1>
+            : <div>
+                <Navbar  />
+                <h1>Game: {roomName}</h1>
+                <h3>Admin: {admin}</h3>
+                <h3>User: {username}</h3>
+                {(userStatus === 'alive')? <Mission userMission={userMission} state={this.state}>
+                  </Mission>
+                  : <h3>You have been killed by: {userDead.killer} for: {userDead.mission}</h3>
+                 }  
+                 <ul>
+                  {participants.map(participant => {
+                      return <ParticipantsList key={participant.username} participant={participant} participants={participants} state={this.state}/>
+                      })
+                    }
+                </ul>
+                { isUserAdmin? <Button handleButton={this.handleReSort} 
+                    state={this.state} props={this.props}> Re-Sort Game </Button>
+                    : null
+                }
+              </div>   
+          }
+          </div>  
     )
   }
 }

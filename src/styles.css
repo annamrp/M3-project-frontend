@@ -258,3 +258,9 @@ input.edit-btn {
 .ok-alert {
   color: green;
 }
+
+/*-------------------- PARTICIPANTS LIST -------------*/
+
+.crossed {
+  text-decoration: line-through;
+}
