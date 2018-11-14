@@ -114,9 +114,12 @@ input.submit-btn {
   margin: 0 0 3px 0;
 }
 
+.bold {
+  font-weight: bold;
+}
 .ok-alert {
   color: green;
-  margin: 2px 0;
+  margin: 10px 0;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -147,7 +150,9 @@ label {
   -webkit-box-shadow: 0 10px 6px -6px #777;
   -moz-box-shadow: 0 10px 6px -6px #777;
   box-shadow: 0 10px 6px -6px #777;
-  background:rgba(240, 231, 222, 0.89)!important; 
+  /* background:rgba(240, 231, 222, 0.89)!important;  */
+  background:rgba(255, 255, 255, 0.89)!important; 
+
   color: black;
   border-radius: 8px;
 }

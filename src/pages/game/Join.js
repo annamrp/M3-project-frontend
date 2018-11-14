@@ -10,6 +10,7 @@ class Join extends Component {
   state = {
     roomName: '',
     mission: '',
+    alert: '',
   }
 
   handleEdit = event => {
@@ -26,18 +27,37 @@ class Join extends Component {
     .then (() => {
       this.props.history.push('/profile', this.state.alert)
     })
+    .catch(error => {
+      const { data } = error.response;
+      console.log(data)
+      switch(data.error){
+        case 'empty field':
+        this.setState({
+          alert: 'game name or mission can´t be empty'
+        });
+        break;
+        default:
+        this.setState({
+          alert: ''
+        })
+     }
+    })
   }
  
   render() {
+
+    const { alert } = this.state;
+
     return (
       <div>
         <HowToplay/>
         <Navbar  />     
         <h3 className="header join">Join a Game</h3>
+        { alert ? <p className="warning">{ alert }</p> :  null}
         <form onSubmit={this.handleSubmit}>
           <div className="form-input join">
-            <label className="label">Introduce the name of the room</label>
-            <input className="input" placeholder="Room's name" type="text" name="roomName" onChange={this.handleEdit}/>
+            <label className="label">Introduce the name of the game</label>
+            <input className="input" maxLength="15" placeholder="Room's name" type="text" name="roomName" onChange={this.handleEdit}/>
           </div>
           <div className="join-info">
             <div >

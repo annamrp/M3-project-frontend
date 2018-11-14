@@ -76,14 +76,15 @@ class Mission extends Component {
               <h3 className="survivors-num">{numberOfSurvivors} </h3>
               <p className="subheading">Survivors</p>
             </div>
+            { alert ? <p className="ok-alert">{ alert }</p> : null}
             <div className="mission-card">
-              <p className="target-mission capitalize">Your Target: {userMission.target}</p>
-              <p className="target-mission">Mission: {userMission.mission}</p>
+              <p className="target-mission capitalize"><span className="bold">Target:</span> {userMission.target}</p>
+              <p className="target-mission"><span className="bold">Mission:</span> {userMission.mission}</p>
               <div className="kill-btn">
                 <Button handleButton={this.handleKill} state={this.state} props={this.props}>Kill</Button>
               </div>
             </div>
-            { alert ? <p className="ok-alert">{ alert }</p> : null}
+
          </div>
       }
       </div>  

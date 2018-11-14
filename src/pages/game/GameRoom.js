@@ -129,8 +129,7 @@ class GameRoom extends Component {
                   <div className="users-info">
                     <div className="participants-features">
                       <h4>Participants</h4>
-                      <ul className="participants-list">
-                        
+                      <ul className="participants-list">                       
                         {participants.map(participant => {
                             return <ParticipantsList key={participant.username} participant={participant} participants={participants} state={this.state}/>
                             })

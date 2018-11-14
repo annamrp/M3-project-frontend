@@ -37,7 +37,7 @@ class Form extends Component {
     
     return (
       <form className="quote-form" onSubmit={this.handleSubmit}>
-        <input className="input is-success" autoFocus={ true } placeholder={ quote } type="text" name="Kill Sentence" value={ quote } onChange={ this.handleEdit }/>
+        <input className="input is-success" maxLength="30" autoFocus={ true } placeholder={ quote } type="text" name="Kill Sentence" value={ quote } onChange={ this.handleEdit }/>
         <input className="icon" type="image" src='img/ok.png' alt="icon submit"/>
      </form> 
     )
