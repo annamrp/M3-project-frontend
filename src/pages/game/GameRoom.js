@@ -50,7 +50,6 @@ class GameRoom extends Component {
           gameId,
           userStatus,
           userDead,
-          // startedStatus: game.startedStatus, idem
         })
       })
     .catch(err => {
@@ -100,7 +99,6 @@ class GameRoom extends Component {
     gameServer.reSortGame(gameId)
     .then( game => {
       game.missions = this.populateMissions(game)
-      console.log(game.missions);
       this.setState({
         isLoading: false,
         missions: game.missions,
