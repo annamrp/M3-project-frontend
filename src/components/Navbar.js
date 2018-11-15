@@ -4,14 +4,12 @@ import { Link } from 'react-router-dom'
 
 class Navbar extends Component {
   render() {  
+    console.log(this.props.user);
     const { username, image } = this.props.user
     return (
       <div className="nav-bar">
         <Link className="decoration-none" to={'/profile'}>
           <div className="nav-container">
-            <div>
-              <img className="nav-img" src={ image } alt="user icon"/>       
-            </div>
             <p className="hello-user">Hello {username}!</p>
           </div>
         </Link>
