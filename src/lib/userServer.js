@@ -21,11 +21,11 @@ class ProfileServer {
     .then(({ data }) => data);
   }
 
-  editPicture(formData, userId) {
-    return this.user.patch(`/user/${userId}/picture`, formData, {
+  editPicture(picURL, userId) {
+    return this.user.patch(`/user/${userId}/picture`, {
       headers: {
         'Content-Type': 'multipart/form-data'
-      }})
+      }, picURL})
     .then(({ data }) => data);
   }
 }

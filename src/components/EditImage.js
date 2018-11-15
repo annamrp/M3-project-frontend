@@ -10,7 +10,7 @@ class EditImage extends Component {
   }
 
   fileUpload =  event  => {
-    const file = event.target.files[0]
+    const file = event.target.value;
     this.setState({
       image: file
     })
@@ -18,10 +18,10 @@ class EditImage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const formData = new FormData();
+    //const formData = new FormData();
     const file = this.state.image;
-    formData.append("picture", file)
-    profileServer.editPicture(formData, this.props.user._id)
+    //formData.append("picture", file)
+    profileServer.editPicture(file, this.props.user._id)
     .then(user => {
       this.props.setUser(user)
       this.setState({
@@ -33,10 +33,11 @@ class EditImage extends Component {
   }
 
   render() {  
+    const {image} = this.state;
   
     return (
       <form onSubmit={this.handleSubmit}>
-       <input type="file" name="image" onChange={this.fileUpload}/>
+       <input type="text" name="image" onChange={this.fileUpload} value={image}/>
        <input className="edit-btn" type="submit" value="Edit"/>
       </form>
       
