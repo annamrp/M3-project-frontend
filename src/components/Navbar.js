@@ -3,6 +3,7 @@ import { withAuth } from '../lib/authContext';
 import { Link } from 'react-router-dom'
 
 class Navbar extends Component {
+
   render() {  
     const { username, image } = this.props.user
     return (

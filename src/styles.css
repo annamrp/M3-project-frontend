@@ -190,6 +190,10 @@ label.log-sign-label {
   margin-top: 195px;
 }
 
+.login .btn, .signup .btn {
+  width: 180px;
+}
+
 .log-sign-container {
   padding-top: 60px;
 }
