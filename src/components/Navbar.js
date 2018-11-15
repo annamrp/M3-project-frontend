@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom'
 
 class Navbar extends Component {
   render() {  
-    console.log(this.props.user);
-    const { username, image } = this.props.user
+    const { username } = this.props.user
     return (
       <div className="nav-bar">
         <Link className="decoration-none" to={'/profile'}>

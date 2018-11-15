@@ -29,12 +29,8 @@ componentDidMount() {
 }
 
 handleStartClick(state, props) {
-  const { gameId , roomName, participants} = this.state;
-  const emails = participants.map(participant => {
-    return participant.email;
-  })
+  const { gameId } = this.state;
   
-  const message = `Your game in Paranoia room: ${roomName} has started, watch your back!!`
   gameServer.startGame(gameId)
   .then( game => {
     const gameId = game._id;
