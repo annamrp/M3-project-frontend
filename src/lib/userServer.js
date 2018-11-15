@@ -22,10 +22,9 @@ class ProfileServer {
   }
 
   editPicture(picURL, userId) {
-    return this.user.patch(`/user/${userId}/picture`, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }, picURL})
+    return this.user.patch(`/user/${userId}/picture`, 
+      picURL
+    )
     .then(({ data }) => data);
   }
 }
