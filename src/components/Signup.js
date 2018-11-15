@@ -28,21 +28,10 @@ class Signup extends Component {
       })
       .catch( error => {
         const { data } = error.response;
-        switch(data.error){
-          case 'empty':
-            this.setState({
-              alert: 'username or password can´t be empty'
-            });
-            break;
-          case 'username-not-unique':
+        if(data.error === 'username-not-unique'){
             this.setState({
               alert: 'username already in use'
             });
-            break;
-          default:
-            this.setState({
-              alert: ''
-            })
         }   
       })
   }
@@ -58,20 +47,20 @@ class Signup extends Component {
   render() {
     const { username, password, alert, email } = this.state;
     return (
-      <div className="signup log-sign-container">
+      <div className="signup">
         { alert ? <p className="warning">{alert}</p> :  null}
         <form onSubmit={this.handleFormSubmit}>
           <div className="input">
             <label className="log-sign-label">Username:</label>
-            <input type="text" name="username" value={username} onChange={this.handleChange}/>
+            <input type="text" name="username" value={username} onChange={this.handleChange} required/>
           </div>
           <div className="input">
             <label className="log-sign-label">Email:</label>
-            <input type="text" name="email" value={email} onChange={this.handleChange}/>
+            <input type="text" name="email" value={email} onChange={this.handleChange} required/>
           </div>
           <div className="input">
             <label className="log-sign-label">Password:</label>
-            <input type="password" name="password" value={password} onChange={this.handleChange} />
+            <input type="password" name="password" value={password} onChange={this.handleChange} required/>
           </div>
           <div className="input-submit">
             <input className="log-signup-btn btn" type="submit" value="SignUp" />
