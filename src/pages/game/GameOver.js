@@ -81,15 +81,19 @@ class GameOver extends Component {
         {isLoading? <h1>...Loading</h1>
          : <div> 
               <Navbar  />
-              <h1>winner: {winner} </h1>
-               <p>Kill Log</p>
-              <div> { killLog.map(killEvent => {
+              <h1 className="winner">winner: {winner} </h1>
+               <h3 className="log-title">Kill Log</h3>
+              <div className="card-container"> { killLog.map(killEvent => {
                 return (
-                  <div key={killEvent.mission}>
-                    <p>Killer: {killEvent.killer}</p>
-                    <p>Target: {killEvent.target}</p>
-                    <p>Mission: {killEvent.mission}</p>
-                    <p>Date of death: {killEvent.date}</p>
+                  <div className="kill-log" key={killEvent.mission}>
+                    <div className="killer-target">
+                      <p><span className="bold">Killer:</span> <span className="spotlight">{killEvent.killer}</span></p>
+                      <p><span className="bold">Target:</span> <span className="spotlight">{killEvent.target}</span></p>
+                    </div>
+                    <div className="murder">
+                      <p><span className="bold shadow">Mission:</span> <span className="lower">{killEvent.mission}</span></p>
+                      <p><span className="bold shadow">Date of death:</span> <span className="lower">{killEvent.date}</span></p>
+                    </div>
                   </div>
                 )
               }) } </div>

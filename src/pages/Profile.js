@@ -102,7 +102,6 @@ class Profile extends Component {
   }
 
   submitImage = (file) => {
-
     this.setState({
       file,
     })

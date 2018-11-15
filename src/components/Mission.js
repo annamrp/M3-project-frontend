@@ -71,11 +71,20 @@ class Mission extends Component {
     return (
       <div> {isLoading? <h1>...Loading</h1>
         : <div>
-            <h3>Number of Survivors: {numberOfSurvivors}</h3>
-            <p>Your Target: {userMission.target}</p>
-            <p>Mission: {userMission.mission}</p>
-            <Button handleButton={this.handleKill} state={this.state} props={this.props}>Kill</Button>
+            {/* <h3 className="survivors-heading">Survivors</h3> */}
+            <div className="survivors">
+              <h3 className="survivors-num">{numberOfSurvivors} </h3>
+              <p className="subheading">Survivors</p>
+            </div>
             { alert ? <p className="ok-alert">{ alert }</p> : null}
+            <div className="mission-card">
+              <p className="target-mission capitalize"><span className="bold">Target:</span><span className="bigger target"> {userMission.target}</span></p>
+              <p className="target-mission"><span className="bold">Mission:</span><span className="bigger spotlight"> {userMission.mission}</span></p>
+              <div className="kill-btn">
+                <Button handleButton={this.handleKill} state={this.state} props={this.props}>Kill</Button>
+              </div>
+            </div>
+
          </div>
       }
       </div>  

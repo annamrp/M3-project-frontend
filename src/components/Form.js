@@ -33,15 +33,14 @@ class Form extends Component {
   }
 
   render() {  
+
     const { quote } = this.state;
     
     return (
       <form className="quote-form" onSubmit={this.handleSubmit}>
-      {/* {foto edit} */}
-        <input className="input is-success" autofocus="true" placeholder={ quote } type="text" name="Kill Sentence" value={quote} onChange={this.handleEdit}/>
-        {/* <input className="button is-success edit-btn" type="submit" value=""/> */}
+        <input className="input is-success" maxLength="30" autoFocus={ true } placeholder={ quote } type="text" name="Kill Sentence" value={ quote } onChange={ this.handleEdit }/>
         <input className="icon" type="image" src='img/ok.png' alt="icon submit"/>
-    </form> 
+     </form> 
     )
   }
 }

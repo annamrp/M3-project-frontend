@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withAuth } from '../../lib/authContext';
 import gameServer from '../../lib/gameServer';
 import Navbar from '../../components/Navbar';
+import HowToplay from '../../components/HowToplay';
 
 
 class Join extends Component {
@@ -9,6 +10,7 @@ class Join extends Component {
   state = {
     roomName: '',
     mission: '',
+    alert: '',
   }
 
   handleEdit = event => {
@@ -25,22 +27,46 @@ class Join extends Component {
     .then (() => {
       this.props.history.push('/profile', this.state.alert)
     })
+    .catch(error => {
+      this.setState({
+        alert:'Invalid game name',
+      })
+    })
   }
  
   render() {
+
+    const { alert } = this.state;
+
     return (
       <div>
-        <Navbar  />
-        <h2>Join a Game</h2>
-          <form onSubmit={this.handleSubmit}>
-          <label>Introduce the name of the room:</label>
-          <input className="input is-success" placeholder="Room's name" type="text" name="roomName" onChange={this.handleEdit}/>
-          <div>
-          <label>To enter your mission, remember:<br />· It must be something simple, but fun (sing 'La Macarena' or try to touch the nose with his tongue)<br />· The mission should not be directed to anyone in particular</label>
+        <HowToplay/>
+        <Navbar  />     
+        
+        <h3 className="header join">Join a Game</h3>
+        { alert ? <p className="warning">{ alert }</p> :  null}
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-input join">
+            <label className="label">Introduce the name of the game</label>
+            <input className="input" maxLength="15" placeholder="Room's name" type="text" name="roomName" onChange={this.handleEdit}/>
           </div>
-          <input className="input is-success" placeholder="Your Mission" type="text" name="mission"  onChange={this.handleEdit}/>
-          <input className="btn is-success" type="submit" value="Go!"/>
-        </form>
+          <div className="join-info">
+            <div >
+              <p>To enter your mission, remember:</p>
+              <ul>
+                <li className="join-info-list">It must be something simple, but fun (sing 'La Macarena' or try to touch the nose with the tongue)</li>
+                <li className="join-info-list">The mission should not be directed to anyone in particular</li>
+              </ul>
+            </div>
+          </div>
+          <div className="form-input join">
+            <label className="label">Introduce a mission</label>
+            <input className="input" placeholder="Your Mission" type="text" name="mission"  onChange={this.handleEdit}/>
+          </div>
+          <div className="btn-container">
+            <input className="btn join" type="submit" value="Go!"/>
+          </div>
+        </form>     
       </div>
     )
   }

@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import EmailForm from '../../components/EmailForm';
 import DeleteEmail from '../../components/DeleteEmail';
+import HowToplay from '../../components/HowToplay';
 
 class CreateForm extends Component {
 
@@ -12,6 +13,8 @@ class CreateForm extends Component {
     roomName:'', 
     mission: '',
     emails: [],
+    alert: '',
+
 }
 
 handleEdit = event => {
@@ -31,13 +34,18 @@ handleSubmit = (event) => {
   } else {
     emailString = emails;
   }
-  console.log(emailString);
   gameServer.createGame(roomName, mission, emailString, message)
   .then( game => {
     const gameId = game._id;
     this.props.history.push(`/game/${gameId}/create`);
   })
- 
+  .catch(data => {
+    if (data.response.status === 422) {
+      this.setState({
+        alert: 'Game name and Mission are required',
+      })
+    }
+  })
 }
 
 handleSubmitEmail = (value) => {
@@ -46,7 +54,6 @@ handleSubmitEmail = (value) => {
   this.setState({
     emails,
   })
-  console.log(emails);
 }
 
 handleDeleteEmail = (index) => {
@@ -58,15 +65,16 @@ handleDeleteEmail = (index) => {
 }
 
   render() {
-    const { roomName, mission, emails } = this.state;
+    const { roomName, mission, emails, alert } = this.state;
     
     return (
       <div>
         <Navbar  />
-        <h4>Create game:</h4>
-        <h4>Invite players:</h4>
+        <HowToplay/>
+        <h4 className="header invite">Invite players</h4>
+        <div>
         <EmailForm onSubmit={this.handleSubmitEmail} />
-        <div> {emails ? <ul>
+        <div> {emails ? <ul className="email-list">
                   { emails.map((email, index) => {
                     return <DeleteEmail 
                       emails={email} 
@@ -79,21 +87,21 @@ handleDeleteEmail = (index) => {
                 : null 
                 }
           </div>
+          </div>
         <form className="create-game-form" onSubmit={this.handleSubmit}>
-          <input className="input is-success" placeholder="game name" type="text" name="roomName" value={roomName} onChange={this.handleEdit}/>
-          <input className="input is-success" placeholder="Introduce a mission" type="text" name="mission" value={mission} onChange={this.handleEdit}/>
-         <div className="mail-form">
-            <label htmlFor="message">Message</label>
-            <textarea className="form-message" rows="5" id="message"></textarea>
-          </div>
-          <h4 className="header invite">Invite players:</h4>
           <div className="form-input">
-            <label className="label" htmlFor="email-adress">Email addresses</label>
-            <input className="form-message form-control" type="text" name="email-adress"  id="email" placeholder="email-1@email.com, email-2@email.com..."/>
+            <label className="label" htmlFor="message">Message</label>
+            <textarea className="form-message text-area" rows="5" id="message" placeholder="remember include the name of your game"></textarea>
+          </div>
+          <h4 className="header create">Create game</h4>
+          { alert ? <p className="warning">{ alert }</p> :  null}
+          <div className="form-input">
+            <label className="label">Introduce a name for your game</label>
+            <input className="input" maxLength="15" placeholder="game name" type="text" name="roomName" value={roomName} onChange={this.handleEdit}/>
           </div>
           <div className="form-input">
-            <label className="label" htmlFor="message" >Message</label>
-            <textarea className="form-message text-area" rows="5" id="message" placeholder="remember include the name of the game"></textarea>
+            <label className="label">And now, your funny mission</label>
+            <input className="input" placeholder="Introduce a mission" type="text" name="mission" value={mission} onChange={this.handleEdit}/>
           </div>
           <input className="btn send-create" type="submit" value="Invite and create"/>
         </form>
