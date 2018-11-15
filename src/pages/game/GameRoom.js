@@ -121,14 +121,14 @@ class GameRoom extends Component {
             : <div >
                 <Navbar  />
                 <div className="game-room">
-                  <h2 className="header">{roomName}</h2>
+                  <h2 className="game-header  log-title">{roomName}</h2>
                   {(userStatus === 'alive')? <Mission userMission={userMission} state={this.state}>
                     </Mission>
                     : <h3>You have been killed by: {userDead.killer} for: {userDead.mission}</h3>
                   }  
                   <div className="users-info">
                     <div className="participants-features">
-                      <h4>Participants</h4>
+                      <h4 className="game-subheading">Participants</h4>
                       <ul className="participants-list">                       
                         {participants.map(participant => {
                             return <ParticipantsList key={participant.username} participant={participant} participants={participants} state={this.state}/>
@@ -137,11 +137,13 @@ class GameRoom extends Component {
                       </ul>
                     </div>
                     <div className="admin-features">
-                      <h4>Admin: {admin}</h4>
-                      { isUserAdmin? <Button handleButton={this.handleReSort} 
-                          state={this.state} props={this.props}> Re-Sort Game </Button>
-                          : null
-                      }
+                      <h4 className="game-subheading">Admin: <span className="spotlight">{admin}</span></h4>
+                        <div className="re-sort-btn">
+                          { isUserAdmin? <Button handleButton={this.handleReSort} 
+                              state={this.state} props={this.props}>Re-Sort</Button>
+                              : null
+                          }
+                        </div>
                     </div>
                   </div>
                 </div>

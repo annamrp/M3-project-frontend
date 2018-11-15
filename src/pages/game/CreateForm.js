@@ -14,6 +14,7 @@ class CreateForm extends Component {
     mission: '',
     emails: [],
     alert: '',
+
 }
 
 handleEdit = event => {
@@ -38,20 +39,12 @@ handleSubmit = (event) => {
     const gameId = game._id;
     this.props.history.push(`/game/${gameId}/create`);
   })
-  .catch(error => {
-    const { data } = error.response;
-    console.log(data)
-    switch(data.error){
-      case 'Empty fields':
+  .catch(data => {
+    if (data.response.status === 422) {
       this.setState({
-        alert: 'game name or mission can´t be empty'
-      });
-      break;
-      default:
-      this.setState({
-        alert: ''
+        alert: 'Game name and Mission are required',
       })
-   }
+    }
   })
 }
 

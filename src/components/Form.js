@@ -33,6 +33,7 @@ class Form extends Component {
   }
 
   render() {  
+
     const { quote } = this.state;
     
     return (

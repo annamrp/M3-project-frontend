@@ -28,19 +28,9 @@ class Join extends Component {
       this.props.history.push('/profile', this.state.alert)
     })
     .catch(error => {
-      const { data } = error.response;
-      console.log(data)
-      switch(data.error){
-        case 'empty field':
-        this.setState({
-          alert: 'game name or mission can´t be empty'
-        });
-        break;
-        default:
-        this.setState({
-          alert: ''
-        })
-     }
+      this.setState({
+        alert:'Invalid game name',
+      })
     })
   }
  
@@ -52,6 +42,7 @@ class Join extends Component {
       <div>
         <HowToplay/>
         <Navbar  />     
+        
         <h3 className="header join">Join a Game</h3>
         { alert ? <p className="warning">{ alert }</p> :  null}
         <form onSubmit={this.handleSubmit}>

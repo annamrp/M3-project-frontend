@@ -78,8 +78,8 @@ class Mission extends Component {
             </div>
             { alert ? <p className="ok-alert">{ alert }</p> : null}
             <div className="mission-card">
-              <p className="target-mission capitalize"><span className="bold">Target:</span> {userMission.target}</p>
-              <p className="target-mission"><span className="bold">Mission:</span> {userMission.mission}</p>
+              <p className="target-mission capitalize"><span className="bold">Target:</span><span className="bigger target"> {userMission.target}</span></p>
+              <p className="target-mission"><span className="bold">Mission:</span><span className="bigger spotlight"> {userMission.mission}</span></p>
               <div className="kill-btn">
                 <Button handleButton={this.handleKill} state={this.state} props={this.props}>Kill</Button>
               </div>

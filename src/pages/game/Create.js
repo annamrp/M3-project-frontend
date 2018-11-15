@@ -29,7 +29,12 @@ componentDidMount() {
 }
 
 handleStartClick(state, props) {
-  const { gameId } = this.state;
+  const { gameId , roomName, participants} = this.state;
+  const emails = participants.map(participant => {
+    return participant.email;
+  })
+  
+  const message = `Your game in Paranoia room: ${roomName} has started, watch your back!!`
   gameServer.startGame(gameId)
   .then( game => {
     const gameId = game._id;
@@ -44,8 +49,8 @@ handleStartClick(state, props) {
     return (
       <div>
         <Navbar  />
-        <h1>Room Name: {roomName} </h1>
-        <h3>Admin: {admin} </h3>
+        <h2 className="game-header log-title">{ roomName }</h2>
+        <h3 className="">Admin: {admin} </h3>
         <h3> Participants: 
          
           { participants ? <CreateParticipantList participants={participants}/> : null }

@@ -56,7 +56,7 @@ class ParticipantsList extends Component {
     const { crossedClass, isLoading } = this.state;
 
     return (
-          <li className="participant-li" key={participant.username}>
+          <li className="participant" key={participant.username}>
             {isLoading? <h3>...Loading</h3>
               :<span className={crossedClass}> {participant.username} </span> 
             }  
