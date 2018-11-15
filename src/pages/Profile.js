@@ -61,7 +61,6 @@ class Profile extends Component {
         id: data.user._id,
       })
     })
-    console.log(this.props.history)
     .catch(error => {
       console.log(error)
     })
