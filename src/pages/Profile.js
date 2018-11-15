@@ -43,8 +43,10 @@ class Profile extends Component {
     this.setState({
       isLoading: true
     })
-    this.update()
+    this.update();
+    
   }
+
 
   update() {  
     const userId = this.props.user._id;

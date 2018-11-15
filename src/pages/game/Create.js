@@ -45,15 +45,21 @@ handleStartClick(state, props) {
     return (
       <div>
         <Navbar  />
-        <h2 className="game-header log-title">{ roomName }</h2>
-        <h3 className="">Admin: {admin} </h3>
-        <h3> Participants: 
-         
-          { participants ? <CreateParticipantList participants={participants}/> : null }
-          <Button handleButton={this.handleStartClick} state={this.state} props={this.props}>Start Game</Button>
-                
-          {/*tenemos que cambiar el boton por un form para incluir cuanto quiere el admin que dure el juego*/}
-        </h3>  
+        <div className="create-game">
+          <h2 className="game-header log-title capitalize">{ roomName }</h2>
+          <div className="admin-name">
+            <h4>Admin:</h4>
+            <h4 className="spotlight bigger">{admin}</h4>
+          </div>
+          <div className="part-names">
+            <h4> Participants: 
+            
+              { participants ? <CreateParticipantList participants={participants}/> : null }</h4>
+          </div>          
+          <div className="start-btn">
+            <Button handleButton={this.handleStartClick} state={this.state} props={this.props}>Start Game</Button>
+          </div>                  
+        </div>
       </div>
     )
   }

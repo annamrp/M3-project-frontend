@@ -9,10 +9,14 @@ const HowToplay= () => (
           &times;
         </a> */}
         <div className="content" >
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-              magni omnis delectus nemo, maxime molestiae dolorem numquam
-              mollitia, voluptate ea, accusamus excepturi deleniti ratione
-              sapiente! Laudantium, aperiam doloribus. Odit, aut.
+          <h3 className="pop-up-heading">How to play:</h3>
+          <p>Just think of an action that a player will have to get his victim to perform and thus be eliminated 
+            (like let the Macarena sing ...).</p>
+          <p>When the game starts, you will receive a target and a random mission that 
+            you must complete. If successful, you will receive the target and the mission of your victim.</p>
+          <p>Eliminate everyone from the game before they kill you!</p>
+
+          <h3 className="pop-up-subheading">Good luck!</h3>
         
         </div>
      

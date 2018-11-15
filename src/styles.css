@@ -150,11 +150,19 @@ label {
   -webkit-box-shadow: 0 10px 6px -6px #777;
   -moz-box-shadow: 0 10px 6px -6px #777;
   box-shadow: 0 10px 6px -6px #777;
-  /* background:rgba(240, 231, 222, 0.89)!important;  */
   background:rgba(255, 255, 255, 0.89)!important; 
-
+  padding: 0 10px!important;
   color: black;
   border-radius: 8px;
+}
+
+.pop-up-heading, .pop-up-subheading {
+  color: #FA6D09;
+  text-shadow: .3px .2px #3F3F3F;
+}
+
+.pop-up-subheading {
+  text-align: right;
 }
 
 /* -------------------- HOME -------------------- */
@@ -165,12 +173,7 @@ label {
 
 img.logo {
   width: 100%;
-  margin-top: 30px
-}
-
-h3.slogan {
-  margin-bottom: 0;
-  text-align: center;
+  margin-top: 30px;
 }
 
 label.log-sign-label {
@@ -179,9 +182,18 @@ label.log-sign-label {
   font-weight: 600;
 }
 
-div.login.log-sign-container {
-  padding-top: 120px;
+.signup {
+  margin-top: 125px;
 }
+
+.login {
+  margin-top: 195px;
+}
+
+.login .btn, .signup .btn {
+  width: 180px;
+}
+
 .log-sign-container {
   padding-top: 60px;
 }
@@ -393,7 +405,7 @@ p.game-list {
   color: #AD4747;
 }
 
-/* ----------------- CREATE GAME ---------------- */
+/* -------------- CREATE GAME FORM ------------- */
 
 .label {
   font-size: 18px;
@@ -471,6 +483,53 @@ input.btn.send-create {
   width: 200px;
 }
 
+/* ----------------- CREATE GAME ---------------- */
+
+.create-game {
+  margin: 40px 15px;
+  padding: 0 15px;
+  border-radius: 10px;
+  border: 0.5px solid rgba(80,80,80,0.3);
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+  background:rgba(90,90,90,0.1); 
+}
+
+.create-game h2 {
+  margin: 30px 0;
+}
+
+.admin-name, .part-names {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.create-game h3,.create-game h4, .create-game .bigger {
+  text-transform: capitalize;
+  margin: 15px 0;
+}
+
+.create-game .spotlight.bigger {
+  font-size: 1.5em;
+}
+
+.create-participants-list {
+  list-style-type: none;
+}
+.create-game ul {
+  margin: 5px 0;
+}
+.start-btn {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.start-btn .btn {
+  width: 150px;
+  margin: 20px 0 10px 0;
+}
 
 /* ------------------ JOIN GAME ----------------- */
 
@@ -545,7 +604,6 @@ p.subheading {
   -webkit-box-shadow: 0 10px 6px -6px #777;
   -moz-box-shadow: 0 10px 6px -6px #777;
   box-shadow: 0 10px 6px -6px #777;
-  /* background:rgba(250,109,9,0.7); */
   background: linear-gradient(#d52c05, #ffb109);
   margin: 0 auto;
   padding-bottom: 25px;
@@ -600,7 +658,7 @@ p.subheading {
 .participants-list {
   padding-left: 0;
   text-align: center;
-  margin: 5px 0
+  margin: 5px 0 20px 0;
 }
 .participant {
   font-size: 20px;
@@ -613,6 +671,40 @@ p.subheading {
   text-align: center;
   margin: 15px 0;
 }
+
+.killed {
+  border: 0.5px solid rgba(80,80,80,0.3);
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+  /* background:rgba(90,90,90,0.1);  */
+  background: linear-gradient(#d52c05, #ffb109);
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: .9em;
+  color:  #F4EFEB;
+  text-shadow: 1px 1px  #3F3F3F;
+}
+
+.killed h3 {
+  margin: 5px 0;
+}
+.bigger-text {
+  font-size: 1.3em;
+}
+
+p.bigger-text.capitalize {
+  font-size: 1.5em;
+}
+
+.killed p {
+  text-align: center;;
+  margin: 15px 0 5px 0;
+}
+
+
+
+
 
 /*-------------------- PARTICIPANTS LIST -------------*/
 
@@ -682,4 +774,9 @@ p.subheading {
  .murder {
    padding-bottom: 30px;
  }
+
+ .start-btn {
+   text-align: center;
+ }
+ 
 

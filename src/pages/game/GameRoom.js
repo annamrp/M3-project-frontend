@@ -119,10 +119,13 @@ class GameRoom extends Component {
             : <div >
                 <Navbar  />
                 <div className="game-room">
-                  <h2 className="game-header  log-title">{roomName}</h2>
+                  <h2 className="game-header  log-title capitalize">{roomName}</h2>
                   {(userStatus === 'alive')? <Mission userMission={userMission} state={this.state}>
                     </Mission>
-                    : <h3>You have been killed by: {userDead.killer} for: {userDead.mission}</h3>
+                    : <div className="killed">
+                        <h3>You've been killed by: <p className="bigger-text capitalize">{userDead.killer}</p></h3>
+                        <h3>for: <p className="bigger-text">{userDead.mission}</p></h3>
+                      </div>
                   }  
                   <div className="users-info">
                     <div className="participants-features">

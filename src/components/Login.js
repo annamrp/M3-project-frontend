@@ -32,11 +32,6 @@ class Login extends Component {
             alert: 'invalid username or password'
           });
           break;
-        case 'validation':
-          this.setState({
-            alert: 'username or password can´t be empty'
-          });
-          break;
         default:
           this.setState({
             alert: ''
@@ -57,16 +52,16 @@ class Login extends Component {
   render() {
     const { username, password, alert } = this.state;
     return (
-      <div className="login log-sign-container">
+      <div className="login ">
         { alert ? <p className="warning">{ alert }</p> :  null}
         <form onSubmit={ this.handleFormSubmit } >
           <div className="input"> 
             <label className="log-sign-label">Username:</label>
-            <input type="text" name="username" value={ username } onChange={ this.handleChange }/>
+            <input type="text" name="username" value={ username } onChange={ this.handleChange } required/>
           </div>
           <div className="input">
             <label className="log-sign-label">Password:</label>
-            <input type="password" name="password" value={ password } onChange={ this.handleChange } />
+            <input type="password" name="password" value={ password } onChange={ this.handleChange } required/>
           </div>
           <div className="input-submit">
             <input className="log-signup-btn btn" type="submit" value="Login" />

@@ -6,7 +6,7 @@ import Login from '../components/Login';
 class HomePage extends Component {
 
   state = {
-    showSignup: true
+    showSignup: false
   }
 
   handleLogin = () => {
@@ -23,7 +23,6 @@ class HomePage extends Component {
     return (
       <div className="home-page">
       <img className="logo" src="/img/paranoia.png" alt="paranoia logo"/>
-      <h3 className="slogan">Frase descriptiva</h3>
       {showSignup ? <Signup handleLogin={this.handleLogin}/> : <Login handleSignup={this.handleLogin}/>}
       </div>
     )
