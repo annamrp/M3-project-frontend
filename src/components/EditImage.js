@@ -23,6 +23,7 @@ class EditImage extends Component {
     //formData.append("picture", file)
     profileServer.editPicture(file, this.props.user._id)
     .then(user => {
+      console.log(user.image);
       this.props.setUser(user)
       this.setState({
         image: user.image

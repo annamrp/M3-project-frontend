@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withAuth } from '../../lib/authContext';
 import gameServer from '../../lib/gameServer';
-import { withRouter } from 'react-router-dom';
+
 import ParticipantsList from '../../components/ParticipantsList';
 import Mission from '../../components/Mission';
 import Button from '../../components/Button';
